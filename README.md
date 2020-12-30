@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+![Build and Deploy Resident Web to Firebase](https://github.com/GatePass-Community-Systems/gp-resident-web/workflows/Build%20and%20Deploy%20Resident%20Web%20to%20Firebase/badge.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# JUMGA
 
-## Available Scripts
+> **This react application contains the front end views used by the resident users.**
 
-In the project directory, you can run:
+## Clone the repo
+
+If you haven't done so yet:
+
+- [Install Git](http://git-scm.com/downloads)
+- [Install Node](https://nodejs.org/en/download/)
+
+Then clone this repo to your local machine to get started.
+
+## Build and Run
+
+1 - Get access to the Jumga Firebase console.
+
+2 - Login to Jumga Firebase console
+
+3 - Install all dependencies associated with the application.
+
+### `npm install`
+
+Installs all dependencies associated with the application.
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This runs the application in development mode
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The webpack dev server will reload if you make edits.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Options
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the application locally
+Including minified JS/CSS/HTML as well as compressed text using Brotli/Gzip compression
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run build:config:test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This generates a config.js file which is placed in the root of the src folder. The file exports all of the test environment's configurations for use within the application.
 
-### `npm run eject`
+### `npm run build:config:prod`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This generates a config.js file which is placed in the root of the src folder. The file exports all of the production environment's configurations for use within the application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run build:config:local`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This generates a config.js file which is placed in the root of the src folder. The file exports all of the test environment's configurations for use within the application locally.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run deploy:test`
 
-## Learn More
+It attempts to generate the config file for the test environment, then builds the application using this configuration and finally deploys the application (build folder) to Firebase Hosting within the test environment.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm run deploy:prod`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It attempts to generate the config file for the production environment, then builds the application using this configuration and finally deploys the application (build folder) to Firebase Hosting within the production environment.
 
-### Code Splitting
+### Use of Firebase CI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For details on generating the config file and its usage. Visit [Firebase CI](https://www.npmjs.com/package/firebase-ci)
 
-### Analyzing the Bundle Size
+## Project Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This application uses Bootstrap and styled components (including partials) for component styling and theming.
