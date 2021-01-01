@@ -2,21 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from 'react-redux';
-import {createStore, combineReducers} from 'redux';
-import reducer from "./store/reducer";
+
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
+import reducer from './store/reducer';
+import theme from './utils/theme';
+import GlobalStyles from './utils/global';
 
 const rootReducer = combineReducers({
-    cart: reducer
+  cart: reducer,
 });
 
 const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <>
           <App />
-      </Provider>
+          <GlobalStyles />
+        </>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
