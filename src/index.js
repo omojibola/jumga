@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
+import reducer from './store/reducer';
+import theme from './utils/theme';
+import GlobalStyles from './utils/global';
+
+const rootReducer = combineReducers({
+  cart: reducer,
+});
+
+const store = createStore(rootReducer);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <>
+          <App />
+          <GlobalStyles />
+        </>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
