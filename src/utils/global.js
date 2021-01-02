@@ -8,6 +8,8 @@ html{
    
     --color-white:${(props) => props.theme.colors.white};
     --color-black:${(props) => props.theme.colors.black};
+
+    font-size:75%;
 }
 
 `;

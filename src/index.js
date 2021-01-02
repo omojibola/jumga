@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { ThemeProvider } from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 

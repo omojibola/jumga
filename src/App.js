@@ -1,23 +1,25 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import LandingPage from './Pages/LandingPage';
+import ShopOwnerLogin from './Pages/ShopOwnerLogin';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import ProductSection from './components/ProductSection/ProductSection';
 import Footer from './components/Footer/Footer';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Header />
-      <Hero />
-      <ProductSection
-        buttonText={'See All Most Popular'}
-        text={'Most Popular'}
-      />
-      <ProductSection buttonText={'See All Deals'} text={'Best Deals'} />
-      <Footer />
+      <Router>
+        <Header />
+
+        <Switch>
+          <Route path="/" component={LandingPage} exact />
+          <Route path="/shop-login" component={ShopOwnerLogin} exact />
+        </Switch>
+        <Footer />
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
