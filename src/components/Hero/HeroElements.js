@@ -22,10 +22,11 @@ export const HeroParagraph = styled.p`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-  //color: rgba(0, 0, 0, 0.54);
+
   color: var(--color-black);
   width: 80%;
   padding-bottom: 60px;
+  opacity: 0.6;
 `;
 
 export const HeadingSpan = styled.span`
