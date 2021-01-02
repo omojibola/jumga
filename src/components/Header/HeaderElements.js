@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-=======
-import styled from "styled-components";
-import theme from "../theme/main";
->>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
 
 export const HeaderTop = styled.header`
   width: 100%;
@@ -50,10 +45,10 @@ export const Paragraph1 = styled.p`
 =======
 font-family: Poppins, sans-serif;
 font-style: normal;
-font-weight:  ${({weight}) => (weight ? '600' : 'normal')};
+font-weight:  ${({ weight }) => (weight ? '600' : 'normal')};
 font-size: 14px;
 line-height: 21px;
-color:  ${({dark}) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
+color:  ${({ dark }) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
 margin: 0 5px;
 
 >>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
