@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../theme/main";
 
 export const HeaderTop = styled.header`
 width: 100%;
@@ -34,8 +35,9 @@ font-style: normal;
 font-weight:  ${({weight}) => (weight ? '600' : 'normal')};
 font-size: 14px;
 line-height: 21px;
-color:  ${({color}) => (color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
+color:  ${({dark}) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
 margin: 0 5px;
+
 `;
 
 export const Barrier = styled.div`
@@ -61,7 +63,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 14px;
 line-height: 21px;
-color: rgba(0, 0, 0, 0.8);
+
 
 `;
 

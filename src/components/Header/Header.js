@@ -1,12 +1,11 @@
 import React from "react";
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group, SearchContainer, SearchInput, SearchWrapper, HeadSpan} from "./HeaderElements";
 import ButtonName from "../Button/ButtonName";
 import {KeyboardArrowDown, Search, ShoppingCartOutlined, Phone, LocalShipping} from "@material-ui/icons";
 
 const Header = () => {
     const items = useSelector(state => state.cart.basket);
-    const dispatch = useDispatch();
 
     return (
         <div>
@@ -33,7 +32,7 @@ const Header = () => {
                         <KeyboardArrowDown/>
                     </Wrapper>
                     <Wrapper>
-                        <Group>Brands</Group>
+                        <Group dark>Brands</Group>
                         <KeyboardArrowDown/>
                     </Wrapper>
                     <SearchWrapper>
@@ -44,7 +43,7 @@ const Header = () => {
                         <ButtonName>Search</ButtonName>
                     </SearchWrapper>
                     <Wrapper>
-                        <Paragraph1 weight color>Cart</Paragraph1>
+                        <Paragraph1 dark weight>Cart</Paragraph1>
                         <ShoppingCartOutlined/>
                         <HeadSpan>{items.length}</HeadSpan>
 
