@@ -12,15 +12,21 @@ import {
   StyledForm,
   FormInput,
   FormButton,
+  Checkbox,
+  SmallText,
+  WrapperTwo,
+  TextWrapper,
+  Text,
+  Texttwo,
 } from './ShopLoginElements';
 
 const ShopLogin = () => {
   return (
-    <Container>
+    <Container style={{ textAlign: 'center' }}>
       <Row>
-        <Col sm="6" style={{ height: '900px' }}>
+        <Col sm="6">
           <Wrapper>
-            <Heading>Wecome Back</Heading>
+            <Heading>Welcome Back</Heading>
             <FormContainer>
               <StyledForm>
                 <FormInput type="email" name="email" placeholder="Email" />
@@ -29,9 +35,18 @@ const ShopLogin = () => {
                   name="password"
                   placeholder="Password"
                 />
+                <WrapperTwo>
+                  <Checkbox type="checkbox" />
+                  <SmallText>Keep Me Logged In</SmallText>
+                </WrapperTwo>
+
                 <FormButton>Log In</FormButton>
               </StyledForm>
             </FormContainer>
+            <TextWrapper>
+              <Text>Don't have an account?</Text>
+              <Texttwo to="/shop-register">Sign Up</Texttwo>
+            </TextWrapper>
           </Wrapper>
         </Col>
         <Column sm="6">

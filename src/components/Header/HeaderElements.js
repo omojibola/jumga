@@ -33,25 +33,13 @@ export const BrandName = styled(Link)`
 `;
 
 export const Paragraph1 = styled.p`
-<<<<<<< HEAD
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: ${({ weight }) => (weight ? '600' : 'normal')};
   font-size: 14px;
   line-height: 21px;
-  color: ${({ color }) =>
-    color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
+  color: var(--color-main);
   margin: 0 5px;
-=======
-font-family: Poppins, sans-serif;
-font-style: normal;
-font-weight:  ${({ weight }) => (weight ? '600' : 'normal')};
-font-size: 14px;
-line-height: 21px;
-color:  ${({ dark }) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
-margin: 0 5px;
-
->>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
 `;
 
 export const Barrier = styled.div`
@@ -71,22 +59,12 @@ export const NavBottom = styled.nav`
 `;
 
 export const Group = styled.h5`
-<<<<<<< HEAD
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
-  color: rgba(0, 0, 0, 0.8);
-=======
-font-family: Poppins, sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 21px;
-
-
->>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
+  color: var(--color-main);
 `;
 
 export const SearchWrapper = styled.div`

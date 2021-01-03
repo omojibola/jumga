@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const HeroText = styled.div`
   display: flex;
   flex-direction: column;
-  width: 35%;
   margin: 60px 10px;
 `;
 
@@ -44,12 +43,13 @@ export const HeroCover = styled.div`
   display: flex;
   justify-content: space-between;
   width: 80%;
+  height: 500px;
   margin: 0 auto 80px;
 `;
 
 export const Hero1 = styled.div`
   background: var(--color-subMain);
-  padding-bottom: 20px;
+  height: 500px;
 `;
 
 export const HeroImage = styled.div`

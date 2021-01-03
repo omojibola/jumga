@@ -1,11 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Col } from 'reactstrap';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 export const Column = styled(Col)`
   background: var(--color-subMain);
-  height: 900px;
-
   position: relative;
 
   @media screen and (max-width: 575px) {
@@ -14,7 +13,7 @@ export const Column = styled(Col)`
 `;
 
 export const BackgroundImage = styled.div`
-  width: 80%;
+  width: 60%;
   height: 400px;
   margin: 200px auto 0 auto;
 `;
@@ -42,11 +41,12 @@ export const FormContainer = styled(Formik)`
   top: 0;
   z-index: 0;
   margin-top: 50px;
+  width: 340px;
 `;
 
 export const StyledForm = styled(Form)``;
 export const FormInput = styled(Field)`
-  width: 340px;
+  width: 70%;
   height: 35px;
   border: 0.2px solid #ccc;
   background: var(--color-white);
@@ -59,8 +59,17 @@ export const FormInput = styled(Field)`
   }
 `;
 
+export const Checkbox = styled.input`
+  flex-direction: row;
+`;
+export const SmallText = styled.p`
+  color: #000;
+  font-weight: 12px;
+  flex-direction: row;
+`;
+
 export const FormButton = styled.button`
-  width: 340px;
+  width: 70%;
   height: 35px;
   background: var(--color-main);
   margin: 10px 0;
@@ -70,5 +79,48 @@ export const FormButton = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    border: 1px solid var(--color-main);
+    background: transparent;
+    color: var(--color-main);
+    transition: 0.3s ease-in;
+  }
+`;
+
+export const WrapperTwo = styled.div`
+  display: flex;
+  width: 70%;
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const Text = styled.div`
+  flex-direction:row
+  text-align: left;
+  margin-top: 24px;
+  color: #c4c4c4;
+  font-size: 14px;
+  
+
+`;
+
+export const Texttwo = styled(Link)`
+  flex-direction: row;
+  align-items: end;
+  margin-top: 24px;
+  color: var(--color-main);
+  font-size: 14px;
+  justify-content: flex-end;
+  text-decoration: none;
+  margin-left: 1px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-main);
   }
 `;
