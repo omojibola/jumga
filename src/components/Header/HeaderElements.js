@@ -24,7 +24,8 @@ export const BrandName = styled(Link)`
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
-  color: var(--color-black);
+  color: var(--color-main);
+  font-size: 30px;
 
   &:hover {
     text-decoration: none;

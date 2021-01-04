@@ -6,17 +6,25 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
-import reducer from './store/reducer';
+import authReducer from './store/reducers/authReducer';
+import shopReducer from './store/reducers/shopReducer';
 import theme from './utils/theme';
 import GlobalStyles from './utils/global';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const rootReducer = combineReducers({
-  cart: reducer,
+  cart: shopReducer,
+  auth: authReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,8 +1,9 @@
 import React from 'react';
 import image from '../../img/backgroundimage.svg';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import {
+  Container,
   Column,
   BackgroundImage,
   Image,
@@ -45,11 +46,13 @@ const ShopLogin = () => {
             </FormContainer>
             <TextWrapper>
               <Text>Don't have an account?</Text>
-              <Texttwo to="/shop-register">Sign Up</Texttwo>
+              <Texttwo to="/shop-register" main>
+                Sign Up
+              </Texttwo>
             </TextWrapper>
           </Wrapper>
         </Col>
-        <Column sm="6">
+        <Column fluid sm="6">
           <BackgroundImage>
             <Image src={image} />
           </BackgroundImage>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
   HeaderTop,
@@ -27,7 +27,6 @@ import {
 
 const Header = () => {
   const items = useSelector((state) => state.cart.basket);
-  const dispatch = useDispatch();
 
   return (
     <div>

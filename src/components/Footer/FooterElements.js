@@ -27,7 +27,7 @@ export const FooterP = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 24px;
   color: #ffffff;
   margin: 5% 0;
