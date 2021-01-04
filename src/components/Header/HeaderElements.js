@@ -1,10 +1,9 @@
-import styled from "styled-components";
-import {Link} from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const LinkTag = styled(Link)`
-color: inherit;
-text-decoration: none;
-
+  color: inherit;
+  text-decoration: none;
 `;
 
 export const HeaderTop = styled.header`
@@ -30,7 +29,8 @@ export const BrandName = styled(Link)`
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
-  color: var(--color-black);
+  color: var(--color-main);
+  font-size: 30px;
 
   &:hover {
     text-decoration: none;
@@ -44,7 +44,8 @@ export const Paragraph1 = styled.p`
   font-weight: ${({ weight }) => (weight ? '600' : 'normal')};
   font-size: 14px;
   line-height: 21px;
-  color: ${({ color }) => color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
+  color: ${({ color }) =>
+    color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
   margin: 0 5px;
 `;
 
@@ -65,12 +66,12 @@ export const NavBottom = styled.nav`
 `;
 
 export const Group = styled.h5`
-font-family: Poppins, sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 21px;
-color: var(--color-main);
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--color-main);
 `;
 
 export const SearchWrapper = styled.div`
@@ -98,14 +99,14 @@ export const SearchInput = styled.input`
 `;
 
 export const HeadSpan = styled.span`
-position: absolute;
-top: -5px;
-right: -8px;
-background: var(--color-main);
-padding: 3px 6px;
-border-radius: 50%;
-font-size: 12px;
-color: var(--color-white) ;
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: var(--color-main);
+  padding: 3px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: var(--color-white);
 `;
 
 export const NavLink = styled(Link)`
