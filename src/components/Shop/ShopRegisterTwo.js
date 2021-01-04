@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image from '../../img/backgroundimage.svg';
 import * as actions from '../../store/actions/authActions';
+import { data } from '../../store/DispatchRidersData';
 
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
@@ -30,13 +31,19 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 const RegisterSchema = Yup.object().shape({
   bankName: Yup.string().required('Bank name is required'),
+  accountName: Yup.string().required('Account name is required'),
   accountNumber: Yup.string()
     .matches(phoneRegExp, 'Not a valid Number')
     .required('Account Number is required'),
 });
 
 const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
+  const [items, setItems] = useState(data);
   const history = useHistory();
+  const keys = Object.keys(items);
+  const randomIndex = keys[Math.floor(Math.random() * keys.length)];
+
+  const rider = items[randomIndex];
 
   return (
     <Container style={{ textAlign: 'center' }}>
@@ -51,6 +58,8 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
                 bankName: '',
                 accountNumber: '',
                 country: '',
+                accountName: '',
+                dispatchRider: rider,
               }}
               validationSchema={RegisterSchema}
               onSubmit={async (values, { setSubmitting }) => {
@@ -70,6 +79,14 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
                   />
                   <ErrorWrapper>
                     <Error name="bankName" />
+                  </ErrorWrapper>
+                  <FormInput
+                    type="text"
+                    name="accountName"
+                    placeholder="Account Name"
+                  />
+                  <ErrorWrapper>
+                    <Error name="accountName" />
                   </ErrorWrapper>
                   <FormInput
                     type="text"

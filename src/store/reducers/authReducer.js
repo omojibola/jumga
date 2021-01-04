@@ -31,6 +31,9 @@ const authReducer = (state = initialState, { type, payload }) => {
         error: false,
       };
 
+    case actions.AUTH_RESET:
+      return { ...state, authenticated: false, uid: '' };
+
     case actions.STEP_TWO_START:
       return { ...state, loading: true, authenticated: false };
 
