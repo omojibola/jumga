@@ -22,6 +22,11 @@ import {
 
 const ShopRegister3 = () => {
   const history = useHistory();
+
+  const moveToDashboard = () => {
+    history.replace('/dashboard');
+  };
+
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>
@@ -39,7 +44,9 @@ const ShopRegister3 = () => {
                 </TextWrapper2>
 
                 <FormButton>Pay Now</FormButton>
-                <FormButton white>Pay Later</FormButton>
+                <FormButton white onClick={() => moveToDashboard()}>
+                  Pay Later
+                </FormButton>
               </StyledForm>
             </FormContainer>
             <TextWrapper

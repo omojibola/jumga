@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import image from '../../img/backgroundimage.svg';
 import * as actions from '../../store/actions/authActions';
 
@@ -50,11 +50,6 @@ const RegisterSchema = Yup.object().shape({
 const ShopRegister = ({ signUp, error, loading, uid }) => {
   const history = useHistory();
 
-  useEffect(() => {
-    if (uid && uid !== '') {
-      history.replace('/shop-register/step2');
-    }
-  }, [uid]);
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>
@@ -75,6 +70,9 @@ const ShopRegister = ({ signUp, error, loading, uid }) => {
               onSubmit={async (values, { setSubmitting }) => {
                 await signUp(values);
                 setSubmitting(false);
+                if (uid && uid !== null) {
+                  history.replace('/shop-register/step2');
+                }
               }}
             >
               {({ isSubmitting, isValid }) => (

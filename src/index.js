@@ -13,6 +13,7 @@ import authReducer from './store/reducers/authReducer';
 import shopReducer from './store/reducers/shopReducer';
 import theme from './utils/theme';
 import GlobalStyles from './utils/global';
+import * as Actions from './store/actions/authActions';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -25,6 +26,7 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+store.dispatch(Actions.VerifyAuth());
 
 ReactDOM.render(
   <React.StrictMode>

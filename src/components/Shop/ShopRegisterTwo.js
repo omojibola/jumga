@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import image from '../../img/backgroundimage.svg';
 import * as actions from '../../store/actions/authActions';
 
@@ -56,6 +56,9 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
               onSubmit={async (values, { setSubmitting }) => {
                 await signup(values);
                 setSubmitting(false);
+                if (!error && uid) {
+                  history.replace('/shop-register/step3');
+                }
               }}
             >
               {({ isSubmitting, isValid }) => (

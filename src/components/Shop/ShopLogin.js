@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import image from '../../img/backgroundimage.svg';
-import { Row, Col } from 'reactstrap';
-
+import { Row, Col, Alert } from 'reactstrap';
+import * as actions from '../../store/actions/authActions';
 import {
   Container,
   Column,
@@ -21,14 +21,34 @@ import {
   Texttwo,
 } from './ShopLoginElements';
 
-const ShopLogin = () => {
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+const ShopLogin = ({ loading, error, uid, signIn }) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (uid && uid !== null) {
+      history.replace('/dashboard');
+    }
+  }, [uid]);
   return (
     <Container style={{ textAlign: 'center' }}>
       <Row>
         <Col sm="6">
           <Wrapper>
             <Heading>Welcome Back</Heading>
-            <FormContainer>
+            {error && <Alert color="danger">{error}</Alert>}
+            <FormContainer
+              initialValues={{
+                email: '',
+                password: '',
+              }}
+              onSubmit={async (values, { setSubmitting }) => {
+                await signIn(values);
+                setSubmitting(false);
+              }}
+            >
               <StyledForm>
                 <FormInput type="email" name="email" placeholder="Email" />
                 <FormInput
@@ -41,7 +61,7 @@ const ShopLogin = () => {
                   <SmallText>Keep Me Logged In</SmallText>
                 </WrapperTwo>
 
-                <FormButton>Log In</FormButton>
+                <FormButton>{loading ? 'logging in...' : ' Log In'}</FormButton>
               </StyledForm>
             </FormContainer>
             <TextWrapper>
@@ -61,5 +81,15 @@ const ShopLogin = () => {
     </Container>
   );
 };
+const mapStateToProps = ({ auth }) => ({
+  loading: auth.loading,
+  error: auth.error,
+  authenticated: auth.authenticated,
+  uid: auth.uid,
+});
 
-export default ShopLogin;
+const mapDispatchToProps = {
+  signIn: actions.SignIn,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopLogin);
