@@ -1,16 +1,31 @@
 import styled from 'styled-components';
+import {Twitter, Facebook, Instagram} from "@material-ui/icons";
+
+export const Icon = styled(Facebook)`
+color: var(--color-white);
+`;
+
+export const Tweet = styled(Twitter)`
+color: var(--color-white);
+`;
+
+export const Insta = styled(Instagram)`
+color: var(--color-white);
+`;
 
 export const FooterCover = styled.footer`
   background-color: var(--color-main);
   width: 100%;
   display: flex;
   padding: 5% 10%;
+  justify-content: space-between;
 `;
 
 export const FooterLinkBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 10%;
+  height: 100%;
+
 `;
 
 export const FooterName = styled.p`
@@ -35,5 +50,7 @@ export const FooterP = styled.p`
 
 export const FooterSocial = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-top: 30px;
+  width: 80%;
 `;

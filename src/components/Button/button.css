@@ -1,9 +1,9 @@
 .button {
-  background: #e77728 !important;
+  background: var(--color-main) !important;
   font-family: Poppins, sans-serif;
   font-size: 14px !important;
   line-height: 24px !important;
   color: #ffffff !important;
   border-radius: 0 !important;
-  text-transform: none !important;
+  text-transform: inherit !important;
 }

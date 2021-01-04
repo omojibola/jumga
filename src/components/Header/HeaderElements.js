@@ -1,5 +1,11 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import {Link} from "react-router-dom";
+
+export const LinkTag = styled(Link)`
+color: inherit;
+text-decoration: none;
+
+`;
 
 export const HeaderTop = styled.header`
   width: 100%;
@@ -33,25 +39,13 @@ export const BrandName = styled(Link)`
 `;
 
 export const Paragraph1 = styled.p`
-<<<<<<< HEAD
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: ${({ weight }) => (weight ? '600' : 'normal')};
   font-size: 14px;
   line-height: 21px;
-  color: ${({ color }) =>
-    color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
+  color: ${({ color }) => color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
   margin: 0 5px;
-=======
-font-family: Poppins, sans-serif;
-font-style: normal;
-font-weight:  ${({ weight }) => (weight ? '600' : 'normal')};
-font-size: 14px;
-line-height: 21px;
-color:  ${({ dark }) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
-margin: 0 5px;
-
->>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
 `;
 
 export const Barrier = styled.div`
@@ -71,22 +65,12 @@ export const NavBottom = styled.nav`
 `;
 
 export const Group = styled.h5`
-<<<<<<< HEAD
-  font-family: Poppins, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  color: rgba(0, 0, 0, 0.8);
-=======
 font-family: Poppins, sans-serif;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
 line-height: 21px;
-
-
->>>>>>> bd615fcd4dabbba7ef99030e3c53aef2e945fe06
+color: var(--color-main);
 `;
 
 export const SearchWrapper = styled.div`
@@ -114,19 +98,18 @@ export const SearchInput = styled.input`
 `;
 
 export const HeadSpan = styled.span`
-  position: absolute;
-  top: -5px;
-  right: -8px;
-  background: black;
-  padding: 3px 6px;
-  color: #ffffff;
-  border-radius: 50%;
-  font-size: 12px;
+position: absolute;
+top: -5px;
+right: -8px;
+background: var(--color-main);
+padding: 3px 6px;
+border-radius: 50%;
+font-size: 12px;
+color: var(--color-white) ;
 `;
 
 export const NavLink = styled(Link)`
   color: var(--color-white);
-
   &:hover {
     text-decoration: none;
     color: var(--color-white);

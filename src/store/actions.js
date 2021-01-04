@@ -5,3 +5,7 @@ export const EMPTY_BASKET = 'EMPTY_BASKET';
 export const addItem = (product) => {
     return {type: ADD_ITEM, item: product}
 };
+
+export const removeItem = (id) => {
+    return {type: REMOVE_ITEM, id: id}
+};

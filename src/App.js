@@ -5,9 +5,12 @@ import LandingPage from './Pages/LandingPage';
 import ShopOwnerLogin from './Pages/ShopOwnerLogin';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import CartPage from "./Pages/CartPage";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 const App = () => {
   return (
+
     <div>
       <Router>
         <Header />
@@ -15,6 +18,7 @@ const App = () => {
         <Switch>
           <Route path="/" component={LandingPage} exact />
           <Route path="/shop-login" component={ShopOwnerLogin} exact />
+          <Route path={'/checkout'} component={CartPage}/>
         </Switch>
         <Footer />
       </Router>
