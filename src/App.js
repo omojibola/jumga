@@ -14,6 +14,7 @@ import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
 import * as actions from './store/actions/authActions';
 import CartPage from './Pages/CartPage';
+import Logout from './components/Logout/Logout';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/shop-register/step3" component={ShopRegister3} exact />
           <Route path="/dashboard" component={PrivateRoute(Dashboard)} exact />
           <Route path={'/checkout'} component={CartPage} />
+          <Route path="/log-out" component={Logout} exact />
         </Switch>
         <Footer />
       </Router>

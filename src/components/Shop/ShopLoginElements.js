@@ -56,7 +56,12 @@ export const FormContainer = styled(Formik)`
   width: 340px;
 `;
 
+export const FormContainer2 = styled.div``;
+
 export const StyledForm = styled(Form)``;
+export const FormWrap = styled.div`
+  width: 100%;
+`;
 export const FormInput = styled(Field)`
   width: 70%;
   height: 35px;

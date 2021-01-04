@@ -4,6 +4,7 @@ export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_START = 'AUTH_START';
 export const AUTH_END = 'AUTH_END';
+export const AUTH_RESET = 'AUTH_RESET';
 
 export const STEP_TWO_SUCCESS = 'STEP_TWO_SUCCESS';
 export const STEP_TWO_FAIL = 'STEP_TWO_FAIL';
@@ -68,8 +69,10 @@ export const SignUpStepTwo = (data) => async (dispatch, state) => {
     const uid = state().auth.uid;
     await database.collection('users').doc(uid).update({
       bankName: data.bankName,
+      accountName: data.accountName,
       accountNumber: data.accountNumber,
       country: data.country,
+      dispatchRider: data.dispatchRider,
     });
     dispatch({
       type: STEP_TWO_SUCCESS,
@@ -104,7 +107,7 @@ export const SignIn = (data) => async (dispatch) => {
 };
 
 //sign out user
-export const SignOut = () => async (dispatch, state) => {
+export const SignOut = () => async () => {
   try {
     await firebase.auth().signOut();
   } catch (error) {

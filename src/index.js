@@ -11,6 +11,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import authReducer from './store/reducers/authReducer';
 import shopReducer from './store/reducers/shopReducer';
+import profileReducer from './store/reducers/profileReducer';
 import theme from './utils/theme';
 import GlobalStyles from './utils/global';
 import * as Actions from './store/actions/authActions';
@@ -20,6 +21,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   cart: shopReducer,
   auth: authReducer,
+  profile: profileReducer,
 });
 
 const store = createStore(

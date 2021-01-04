@@ -47,7 +47,7 @@ const RegisterSchema = Yup.object().shape({
     .required('Please confirm password'),
 });
 
-const ShopRegister = ({ signUp, error, loading, uid }) => {
+const ShopRegister = ({ signUp, error, loading, uid, authenticated }) => {
   const history = useHistory();
 
   return (
@@ -69,10 +69,10 @@ const ShopRegister = ({ signUp, error, loading, uid }) => {
               validationSchema={RegisterSchema}
               onSubmit={async (values, { setSubmitting }) => {
                 await signUp(values);
-                setSubmitting(false);
-                if (uid && uid !== null) {
+                if (!error && uid !== undefined) {
                   history.replace('/shop-register/step2');
                 }
+                setSubmitting(false);
               }}
             >
               {({ isSubmitting, isValid }) => (
