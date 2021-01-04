@@ -13,11 +13,9 @@ import ShopRegister3 from './components/Shop/ShopRegister3';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
 import * as actions from './store/actions/authActions';
+import CartPage from './Pages/CartPage';
 
-const App = ({ verifyAuth }) => {
-  useEffect(() => {
-    verifyAuth();
-  }, []);
+const App = () => {
   return (
     <div>
       <Router>
@@ -37,6 +35,7 @@ const App = ({ verifyAuth }) => {
           />
           <Route path="/shop-register/step3" component={ShopRegister3} exact />
           <Route path="/dashboard" component={PrivateRoute(Dashboard)} exact />
+          <Route path={'/checkout'} component={CartPage} />
         </Switch>
         <Footer />
       </Router>

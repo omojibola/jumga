@@ -1,6 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-
 import {
   HeaderTop,
   NavTop,
@@ -14,6 +12,7 @@ import {
   SearchInput,
   SearchWrapper,
   HeadSpan,
+  LinkTag,
   NavLink,
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
@@ -24,6 +23,7 @@ import {
   Phone,
   LocalShipping,
 } from '@material-ui/icons';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {
   const items = useSelector((state) => state.cart.basket);
@@ -39,14 +39,17 @@ const Header = () => {
             <LocalShipping fontSize="small" />
             <Paragraph1> Shipping & Returns</Paragraph1>
           </Wrapper>
-
-          <BrandName to="/">JUMGA</BrandName>
+          <LinkTag to={'/'}>
+            <BrandName>JUMGA</BrandName>
+          </LinkTag>
 
           <Wrapper>
-            <ButtonName>Login</ButtonName>
+            <ButtonName>
+              <NavLink to={'/'}> Login</NavLink>
+            </ButtonName>
             <Barrier />
             <ButtonName>
-              <NavLink to="/shop-login">Sell on Jumga</NavLink>
+              <NavLink to={'/shop-login'}> Sell on Jumga</NavLink>
             </ButtonName>
           </Wrapper>
         </NavTop>
@@ -56,7 +59,7 @@ const Header = () => {
             <KeyboardArrowDown />
           </Wrapper>
           <Wrapper>
-            <Group>Brands</Group>
+            <Group dark>Brands</Group>
             <KeyboardArrowDown />
           </Wrapper>
           <SearchWrapper>
@@ -66,13 +69,15 @@ const Header = () => {
             </SearchContainer>
             <ButtonName>Search</ButtonName>
           </SearchWrapper>
-          <Wrapper>
-            <Paragraph1 weight color>
-              Cart
-            </Paragraph1>
-            <ShoppingCartOutlined />
-            <HeadSpan>{items.length}</HeadSpan>
-          </Wrapper>
+          <LinkTag to={'/checkout'}>
+            <Wrapper>
+              <Paragraph1 dark weight>
+                Cart
+              </Paragraph1>
+              <ShoppingCartOutlined />
+              <HeadSpan>{items.length}</HeadSpan>
+            </Wrapper>
+          </LinkTag>
         </NavBottom>
       </HeaderTop>
     </div>

@@ -10,10 +10,10 @@ const ProductSection = ({text, buttonText}) => {
             <ProductCover>
                 <ProductText>{text}</ProductText>
                 <ProductCase>
-                    <Product image={product} price={1800} name={'Phone Case'}/>
-                    <Product image={speaker} price={23000} name={'Amazon Echo Smart Speaker'}/>
-                    <Product image={"https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"} price={42000} name={'Kenwood KMix Stand Mixer'}/>
-                    <Product image={"https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"} price={1500} name={'The Lean StartUp'}/>
+                    <Product id={1} image={product} price={1800} name={'Phone Case'}/>
+                    <Product id={2} image={speaker} price={23000} name={'Amazon Echo Smart Speaker'}/>
+                    <Product id={3} image={"https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"} price={42000} name={'Kenwood KMix Stand Mixer'}/>
+                    <Product id={4} image={"https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"} price={1500} name={'The Lean StartUp'}/>
                 </ProductCase>
                 <ProductWrap>
                     <MoreButton variant={'outlined'}>{buttonText}</MoreButton>
