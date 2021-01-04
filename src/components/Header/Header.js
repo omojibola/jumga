@@ -1,13 +1,16 @@
 import React from "react";
-import {useSelector} from 'react-redux';
 import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group,
-    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag} from "./HeaderElements";
+    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag, NavLink} from "./HeaderElements";
 import ButtonName from "../Button/ButtonName";
 import {KeyboardArrowDown, Search, ShoppingCartOutlined, Phone, LocalShipping} from "@material-ui/icons";
+import { useSelector, useDispatch } from 'react-redux';
+
+
 
 
 const Header = () => {
-    const items = useSelector(state => state.cart.basket);
+  const items = useSelector((state) => state.cart.basket);
+  const dispatch = useDispatch();
 
     return (
         <div>
@@ -27,7 +30,7 @@ const Header = () => {
                     <Wrapper>
                         <ButtonName>Login</ButtonName>
                         <Barrier/>
-                        <ButtonName>Sell on Jumga</ButtonName>
+                        <NavLink to={'/shop-login'}>Sell on Jumga</NavLink>
                     </Wrapper>
                 </NavTop>
                 <NavBottom>
