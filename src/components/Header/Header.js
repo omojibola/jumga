@@ -1,8 +1,10 @@
 import React from "react";
 import {useSelector} from 'react-redux';
-import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group, SearchContainer, SearchInput, SearchWrapper, HeadSpan} from "./HeaderElements";
+import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group,
+    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag} from "./HeaderElements";
 import ButtonName from "../Button/ButtonName";
 import {KeyboardArrowDown, Search, ShoppingCartOutlined, Phone, LocalShipping} from "@material-ui/icons";
+
 
 const Header = () => {
     const items = useSelector(state => state.cart.basket);
@@ -18,10 +20,12 @@ const Header = () => {
                         <LocalShipping fontSize='small'/>
                         <Paragraph1> Shipping & Returns</Paragraph1>
                     </Wrapper>
+                    <LinkTag to={'/'}>
+                        <BrandName>JUMGA</BrandName>
+                    </LinkTag>
 
-                    <BrandName>JUMGA</BrandName>
                     <Wrapper>
-                        <Paragraph1>Gift cards</Paragraph1>
+                        <ButtonName>Login</ButtonName>
                         <Barrier/>
                         <ButtonName>Sell on Jumga</ButtonName>
                     </Wrapper>
@@ -42,12 +46,14 @@ const Header = () => {
                         </SearchContainer>
                         <ButtonName>Search</ButtonName>
                     </SearchWrapper>
-                    <Wrapper>
-                        <Paragraph1 dark weight>Cart</Paragraph1>
-                        <ShoppingCartOutlined/>
-                        <HeadSpan>{items.length}</HeadSpan>
+                    <LinkTag to={'/checkout'}>
+                        <Wrapper>
+                            <Paragraph1 dark weight>Cart</Paragraph1>
+                            <ShoppingCartOutlined/>
+                            <HeadSpan>{items.length}</HeadSpan>
+                        </Wrapper>
+                    </LinkTag>
 
-                    </Wrapper>
                 </NavBottom>
             </HeaderTop>
         </div>

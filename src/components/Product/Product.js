@@ -3,12 +3,13 @@ import {ProductButton, ProductCase, ProductDetails, ProductImage, ProductName} f
 import {useDispatch, useSelector} from "react-redux";
 import * as actionTypes from '../../store/actions';
 
-const Product = ({image, name, price, }) => {
+const Product = ({id, image, name, price, }) => {
     const items = useSelector(state => state.cart.basket);
     const dispatch = useDispatch();
 
     const addToBasket = () => {
         dispatch(actionTypes.addItem({
+            id: id,
             name: name,
             price: price,
             image: image

@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import theme from "../theme/main";
+import {Link} from "react-router-dom";
+
+export const LinkTag = styled(Link)`
+color: inherit;
+text-decoration: none;
+
+`;
 
 export const HeaderTop = styled.header`
 width: 100%;
@@ -26,6 +32,7 @@ export const BrandName = styled.h4`
 font-family: Poppins, sans-serif;
 font-style: normal;
 font-weight: bold;
+color: var(--color-main);
 `;
 
 
@@ -35,14 +42,14 @@ font-style: normal;
 font-weight:  ${({weight}) => (weight ? '600' : 'normal')};
 font-size: 14px;
 line-height: 21px;
-color:  ${({dark}) => (dark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)')};;
+color:  var(--color-main);
 margin: 0 5px;
 
 `;
 
 export const Barrier = styled.div`
 border: 1px solid rgba(0, 0, 0, 0.54);
-height: 25px;
+height: 40px;
 transform: rotate(180deg);
 margin: 0 10px;
 
@@ -63,6 +70,7 @@ font-style: normal;
 font-weight: 600;
 font-size: 14px;
 line-height: 21px;
+color: var(--color-main);
 
 
 `;
@@ -96,10 +104,11 @@ export const HeadSpan = styled.span`
 position: absolute;
 top: -5px;
 right: -8px;
-background: black;
+background: var(--color-main);
 padding: 3px 6px;
 color: #FFFFFF;
 border-radius: 50%;
 font-size: 12px;
+color: var(--color-white) ;
 
 `;
