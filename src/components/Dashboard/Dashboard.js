@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { firebase } from '../../firebase/fire';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/profileActions';
 
-const Dashboard = ({ fetchProfile, profile }) => {
+const Dashboard = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
   const history = useHistory();
 
   //fetch profile details
@@ -21,22 +21,35 @@ const Dashboard = ({ fetchProfile, profile }) => {
   //log out user
   const logOut = async () => {
     await firebase.auth().signOut();
-    window.location.reload();
     history.push('/');
+    window.location.reload();
+  };
+
+  const renderPage = () => {
+    if (loading) {
+      return <h1>Loading...</h1>;
+    } else
+      return (
+        <Fragment>
+          <h2>Dashboard</h2>
+          {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
+          {dispatchRider && <h3>Status: {dispatchRider.name}</h3>}
+
+          <Button color="danger" onClick={() => logOut()}>
+            Sign Out
+          </Button>
+        </Fragment>
+      );
   };
   return (
-    <div style={{ textAlign: 'center', padding: 200 }}>
-      <h2>Dashboard</h2>
-      <h3>Status:{profile.status}</h3>
-      <Button color="danger" onClick={() => logOut()}>
-        Sign Out
-      </Button>
-    </div>
+    <div style={{ textAlign: 'center', padding: 200 }}>{renderPage()}</div>
   );
 };
 
 const mapStateToProps = ({ profile }) => ({
-  profile: profile.data,
+  profileDetail: profile.data,
+  dispatchRider: profile.data.dispatchRider,
+  loading: profile.loading,
 });
 
 const mapDispatchToProps = {

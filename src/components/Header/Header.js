@@ -39,9 +39,10 @@ const Header = () => {
             <LocalShipping fontSize="small" />
             <Paragraph1> Shipping & Returns</Paragraph1>
           </Wrapper>
-          <LinkTag to={'/'}>
-            <BrandName>JUMGA</BrandName>
-          </LinkTag>
+
+          <BrandName>
+            <LinkTag to={'/'}>JUMGA</LinkTag>
+          </BrandName>
 
           <Wrapper>
             <ButtonName>
