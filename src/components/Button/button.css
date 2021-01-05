@@ -6,4 +6,5 @@
   color: #ffffff !important;
   border-radius: 0 !important;
   text-transform: inherit !important;
+  outline: none;
 }

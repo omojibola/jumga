@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {LocalShipping, Phone, ShoppingCartOutlined} from "@material-ui/icons";
 
 export const LinkTag = styled(Link)`
 color: inherit;
 text-decoration: none;
 
+`;
+
+export const Ship = styled(LocalShipping)`
+color: var(--color-main);
+`;
+
+export const Call = styled(Phone)`
+color: var(--color-main);
+`;
+export const Cart = styled(ShoppingCartOutlined)`
+color: var(--color-main);
 `;
 
 export const HeaderTop = styled.header`
@@ -30,8 +42,10 @@ export const BrandName = styled(Link)`
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
-  color: var(--color-black);
-
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-main);
+  text-decoration: none;
   &:hover {
     text-decoration: none;
     color: black;
@@ -62,13 +76,13 @@ export const NavBottom = styled.nav`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-top: 2px solid #e5e5e5;
   padding: 10px 10%;
+  align-items: center;
 `;
 
 export const Group = styled.h5`
 font-family: Poppins, sans-serif;
 font-style: normal;
 font-weight: 600;
-font-size: 14px;
 line-height: 21px;
 color: var(--color-main);
 `;
@@ -99,19 +113,19 @@ export const SearchInput = styled.input`
 
 export const HeadSpan = styled.span`
 position: absolute;
-top: -5px;
-right: -8px;
+top: -12px;
+right: -15px;
 background: var(--color-main);
-padding: 3px 6px;
+padding: 2px 6px;
 border-radius: 50%;
 font-size: 12px;
 color: var(--color-white) ;
 `;
 
 export const NavLink = styled(Link)`
-  color: var(--color-white);
+  color: var(--color-main);
   &:hover {
-    text-decoration: none;
-    color: var(--color-white);
+  text-decoration: none;
+  color: var(--color-main);
   }
 `;

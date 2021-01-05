@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from "../../utils/theme";
 import {LocalShipping, LiveHelp, Payment} from "@material-ui/icons";
 import man from '../../img/man.jpg';
 import woman from '../../img/woman.jpg';
@@ -39,13 +38,7 @@ export const HeroParagraph = styled.p`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-<<<<<<< HEAD
-  //color: rgba(0, 0, 0, 0.54);
-  color:  ${({colorType}) => (colorType ? theme.colors.main : 'rgba(0, 0, 0, 0.54)')};;
-=======
-
   color: var(--color-black);
->>>>>>> fbc7b38f9cbb1c499171c4d44391258727da52f1
   width: 80%;
   padding-bottom: 60px;
   opacity: 0.6;
@@ -57,8 +50,6 @@ export const HeadingSpan = styled.span`
   font-weight: normal;
   font-size: 36px;
   line-height: 54px;
-  //color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
   color: var(--color-black);
 `;
 

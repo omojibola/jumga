@@ -14,7 +14,7 @@ const Product = ({id, image, name, price, }) => {
             price: price,
             image: image
         }));
-        console.log(items)
+
     };
 
     return (

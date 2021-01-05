@@ -40,6 +40,11 @@ width: 90%;
 border-radius: 0 !important;
 margin-top: 20px !important;
 text-transform: inherit !important;
+background: var(--color-main) !important;
+color: var(--color-white) !important;
+font-size: 16px !important;
+line-height: 24px !important;
+outline: none !important;
  
 `;
 

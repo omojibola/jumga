@@ -2,7 +2,8 @@ import React from "react";
 import {Hero1, HeroCover, HeroHeading, HeroText,
     HeroParagraph, HeroImg, HeroImage, HeadingSpan,
     Features, FeatureBox, FeatureHead, FeatureItem, FeatureP,
-    Ship, Help, Pay, Collection, CollectionItem, CollectionP, CollectionItem2, CollectionItem3, CollectionText} from "./HeroElements";
+    Ship, Help, Pay, Collection, CollectionItem, CollectionP,
+    CollectionItem2, CollectionItem3, CollectionText} from "./HeroElements";
 import {Wrapper} from "../Header/HeaderElements";
 import ButtonName from "../Button/ButtonName";
 import model from '../../img/model-removebg-preview 1.png';

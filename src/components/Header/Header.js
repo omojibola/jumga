@@ -1,8 +1,9 @@
 import React from "react";
 import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group,
-    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag, NavLink} from "./HeaderElements";
+    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag, NavLink, Ship, Call, Cart} from "./HeaderElements";
 import ButtonName from "../Button/ButtonName";
-import {KeyboardArrowDown, Search, ShoppingCartOutlined, Phone, LocalShipping} from "@material-ui/icons";
+import {KeyboardArrowDown, Search} from "@material-ui/icons";
+
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -12,15 +13,16 @@ const Header = () => {
   const items = useSelector((state) => state.cart.basket);
   const dispatch = useDispatch();
 
+
     return (
         <div>
             <HeaderTop>
                 <NavTop>
                     <Wrapper>
-                        <Phone fontSize='small'/>
+                        <Call fontSize='small'/>
                         <Paragraph1> + 234 811 123 5678</Paragraph1>
                         <Barrier/>
-                        <LocalShipping fontSize='small'/>
+                        <Ship fontSize='small'/>
                         <Paragraph1> Shipping & Returns</Paragraph1>
                     </Wrapper>
                     <LinkTag to={'/'}>
@@ -30,7 +32,10 @@ const Header = () => {
                     <Wrapper>
                         <ButtonName>Login</ButtonName>
                         <Barrier/>
-                        <NavLink to={'/shop-login'}>Sell on Jumga</NavLink>
+                        <NavLink to={'/shop-login'}>
+                            <ButtonName>Sell on Jumga</ButtonName>
+                        </NavLink>
+
                     </Wrapper>
                 </NavTop>
                 <NavBottom>
@@ -39,7 +44,7 @@ const Header = () => {
                         <KeyboardArrowDown/>
                     </Wrapper>
                     <Wrapper>
-                        <Group dark>Brands</Group>
+                        <Group>Brands</Group>
                         <KeyboardArrowDown/>
                     </Wrapper>
                     <SearchWrapper>
@@ -52,7 +57,7 @@ const Header = () => {
                     <LinkTag to={'/checkout'}>
                         <Wrapper>
                             <Paragraph1 dark weight>Cart</Paragraph1>
-                            <ShoppingCartOutlined/>
+                            <Cart/>
                             <HeadSpan>{items.length}</HeadSpan>
                         </Wrapper>
                     </LinkTag>

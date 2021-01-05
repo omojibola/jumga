@@ -20,7 +20,7 @@ const ShopLogin = () => {
       <Row>
         <Col sm="6" style={{ height: '900px' }}>
           <Wrapper>
-            <Heading>Wecome Back</Heading>
+            <Heading>Welcome Back</Heading>
             <FormContainer>
               <StyledForm>
                 <FormInput type="email" name="email" placeholder="Email" />
