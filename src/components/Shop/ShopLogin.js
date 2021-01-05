@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import image from '../../img/backgroundimage.svg';
-import { Container, Row, Col } from 'reactstrap';
-
+import { Row, Col, Alert } from 'reactstrap';
+import * as actions from '../../store/actions/authActions';
 import {
+  Container,
   Column,
   BackgroundImage,
   Image,
@@ -12,16 +13,44 @@ import {
   StyledForm,
   FormInput,
   FormButton,
+  Checkbox,
+  SmallText,
+  WrapperTwo,
+  TextWrapper,
+  Text,
+  Texttwo,
 } from './ShopLoginElements';
 
-const ShopLogin = () => {
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+const ShopLogin = ({ loading, error, uid, signIn }) => {
+  const history = useHistory();
+
+  useEffect(() => {
+    if (uid) {
+      history.replace('/dashboard');
+    }
+  }, [uid]);
   return (
-    <Container>
+    <Container style={{ textAlign: 'center' }}>
       <Row>
-        <Col sm="6" style={{ height: '900px' }}>
+        <Col sm="6">
           <Wrapper>
             <Heading>Welcome Back</Heading>
             <FormContainer>
+
+            {error && <Alert color="danger">{error}</Alert>}
+            <FormContainer
+              initialValues={{
+                email: '',
+                password: '',
+              }}
+              onSubmit={async (values, { setSubmitting }) => {
+                await signIn(values);
+                setSubmitting(false);
+              }}
+            >
               <StyledForm>
                 <FormInput type="email" name="email" placeholder="Email" />
                 <FormInput
@@ -29,12 +58,25 @@ const ShopLogin = () => {
                   name="password"
                   placeholder="Password"
                 />
-                <FormButton>Log In</FormButton>
+                <WrapperTwo>
+                  <Checkbox type="checkbox" />
+                  <SmallText>Keep Me Logged In</SmallText>
+                </WrapperTwo>
+
+                <FormButton>{loading ? 'logging in...' : ' Log In'}</FormButton>
               </StyledForm>
             </FormContainer>
+            <TextWrapper>
+              <Text>Don't have an account?</Text>
+              <Texttwo to="/shop-register" main>
+                Sign Up
+              </Texttwo>
+            </TextWrapper>
+            </FormContainer>
           </Wrapper>
+
         </Col>
-        <Column sm="6">
+        <Column fluid sm="6">
           <BackgroundImage>
             <Image src={image} />
           </BackgroundImage>
@@ -43,5 +85,15 @@ const ShopLogin = () => {
     </Container>
   );
 };
+const mapStateToProps = ({ auth }) => ({
+  loading: auth.loading,
+  error: auth.error,
+  authenticated: auth.authenticated,
+  uid: auth.uid,
+});
 
-export default ShopLogin;
+const mapDispatchToProps = {
+  signIn: actions.SignIn,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopLogin);

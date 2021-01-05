@@ -3,9 +3,8 @@ import {Link} from "react-router-dom";
 import {LocalShipping, Phone, ShoppingCartOutlined} from "@material-ui/icons";
 
 export const LinkTag = styled(Link)`
-color: inherit;
-text-decoration: none;
-
+  color: inherit;
+  text-decoration: none;
 `;
 
 export const Ship = styled(LocalShipping)`
@@ -58,7 +57,8 @@ export const Paragraph1 = styled.p`
   font-weight: ${({ weight }) => (weight ? '600' : 'normal')};
   font-size: 14px;
   line-height: 21px;
-  color: ${({ color }) => color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
+  color: ${({ color }) =>
+    color ? 'rgba(0, 0, 0, 0.8)' : 'rgba(0, 0, 0, 0.54)'};
   margin: 0 5px;
 `;
 
@@ -119,7 +119,7 @@ background: var(--color-main);
 padding: 2px 6px;
 border-radius: 50%;
 font-size: 12px;
-color: var(--color-white) ;
+color: var(--color-white);
 `;
 
 export const NavLink = styled(Link)`

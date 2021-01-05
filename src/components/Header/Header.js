@@ -6,12 +6,10 @@ import {KeyboardArrowDown, Search} from "@material-ui/icons";
 
 import { useSelector, useDispatch } from 'react-redux';
 
-
-
-
 const Header = () => {
-  const items = useSelector((state) => state.cart.basket);
-  const dispatch = useDispatch();
+    const items = useSelector((state) => state.cart.basket);
+
+    const dispatch = useDispatch();
 
 
     return (
@@ -61,11 +59,10 @@ const Header = () => {
                             <HeadSpan>{items.length}</HeadSpan>
                         </Wrapper>
                     </LinkTag>
-
                 </NavBottom>
             </HeaderTop>
         </div>
-    )
+    );
 };
 
 export default Header;
