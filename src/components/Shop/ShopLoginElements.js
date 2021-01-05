@@ -69,7 +69,7 @@ export const FormInput = styled(Field)`
   background: var(--color-white);
   margin: 10px 0;
   text-indent: 5px;
-  box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
+  box-shadow: -2px 7px 20px 0 rgba(204, 204, 204, 1);
 
   &:focus {
     outline: none;
@@ -83,7 +83,7 @@ export const FormSelect = styled.select`
   background: var(--color-white);
   margin: 10px 0;
   text-indent: 5px;
-  box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
+  box-shadow: -2px 7px 20px 0 rgba(204, 204, 204, 1);
 
   &:focus {
     outline: none;
@@ -95,7 +95,6 @@ export const Checkbox = styled.input`
 `;
 export const SmallText = styled.p`
   color: #000;
-  font-weight: 12px;
   flex-direction: row;
 `;
 
@@ -105,7 +104,7 @@ export const FormButton = styled.button`
   background: ${({ white }) =>
     white ? `var(--color-white)` : `var(--color-main)`};
   margin: 10px 0;
-  box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
+  box-shadow: -2px 7px 20px 0 rgba(204, 204, 204, 1);
   border: ${({ white }) =>
     white ? `1px solid var(--color-main)` : `1px solid var(--color-main)`};
   color: ${({ white }) => (white ? `var(--color-main)` : `var(--color-white)`)};
@@ -128,7 +127,7 @@ export const FormButtonLink = styled.div`
   height: 35px;
   background: var(--color-main);
   margin: 10px 0;
-  box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
+  box-shadow: -2px 7px 20px 0 rgba(204, 204, 204, 1);
   border: none;
   color: var(--color-white);
 
@@ -174,11 +173,10 @@ export const TextWrapper2 = styled.button`
   }
 `;
 export const Text = styled.div`
-  flex-direction:row
+  flex-direction:row;
   text-align: left;
   color: ${({ black }) => (black ? `#000` : `#c4c4c4`)};
   font-size: 14px;
-  
 
 `;
 

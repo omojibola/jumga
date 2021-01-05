@@ -65,7 +65,7 @@ export const Hero1 = styled.div`
 `;
 
 export const HeroImage = styled.div`
-  width: 35%;
+  width: 45%;
   display: flex;
 `;
 
@@ -118,8 +118,11 @@ export const Collection = styled.div`
 
 export const CollectionItem = styled.div`
   background-image: url(${man});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -127,8 +130,11 @@ export const CollectionItem = styled.div`
 
 export const CollectionItem2 = styled.div`
   background-image: url(${woman});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -136,8 +142,11 @@ export const CollectionItem2 = styled.div`
 
 export const CollectionItem3 = styled.div`
   background-image: url(${child});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;

@@ -20,7 +20,7 @@ export const ProductCase = styled.div`
     display: flex;
     z-index: 1;
     justify-content: space-between;
-    margin: 30px 0;
+    flex-wrap: wrap;
 `;
 
 export const ProductWrap = styled.div`

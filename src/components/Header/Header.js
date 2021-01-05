@@ -4,12 +4,10 @@ import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, G
 import ButtonName from "../Button/ButtonName";
 import {KeyboardArrowDown, Search} from "@material-ui/icons";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const items = useSelector((state) => state.cart.basket);
-
-    const dispatch = useDispatch();
 
 
     return (

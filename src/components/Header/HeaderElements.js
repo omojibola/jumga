@@ -3,8 +3,11 @@ import {Link} from "react-router-dom";
 import {LocalShipping, Phone, ShoppingCartOutlined} from "@material-ui/icons";
 
 export const LinkTag = styled(Link)`
-  color: inherit;
+  color: var(-color--main);
   text-decoration: none;
+  &:hover {
+  text-decoration: none;
+  }
 `;
 
 export const Ship = styled(LocalShipping)`
@@ -37,18 +40,13 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const BrandName = styled(Link)`
+export const BrandName = styled.h4`
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   color: var(--color-main);
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-    color: black;
-  }
 `;
 
 export const Paragraph1 = styled.p`

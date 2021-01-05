@@ -8,7 +8,7 @@ background: #FFFFFF;
 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 max-width: 300px;
 min-width: 200px;
-max-height: 400px;
+margin: 30px 0;
 `;
 
 export const ProductImage = styled.img`
