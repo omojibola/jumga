@@ -1,22 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
-import { Button } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { firebase } from '../../firebase/fire';
-import { connect } from 'react-redux';
 
-import * as actions from '../../store/actions/profileActions';
+import Sidebar from '../Sidebar/Sidebar';
 
-const Dashboard = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
+const Dashboard = ({ profileDetail, loading, dispatchRider, ...allProps }) => {
   const history = useHistory();
-
-  //fetch profile details
-  const fetchProfileDetails = async () => {
-    await fetchProfile();
-  };
-
-  useEffect(() => {
-    fetchProfileDetails();
-  }, []);
 
   //log out user
   const logOut = async () => {
@@ -25,35 +14,40 @@ const Dashboard = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
     window.location.reload();
   };
 
-  const renderPage = () => {
-    if (loading) {
-      return <h1>Loading...</h1>;
-    } else
-      return (
-        <Fragment>
-          <h2>Dashboard</h2>
-          {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
-          {dispatchRider && <h3>Status: {dispatchRider.name}</h3>}
+  function reloadPage() {
+    // The last "domLoading" Time //
+    var currentDocumentTimestamp = new Date(
+      performance.timing.domLoading
+    ).getTime();
+    // Current Time //
+    var now = Date.now();
+    // Ten Seconds //
+    var tenSec = 10 * 1000;
+    // Plus Ten Seconds //
+    var plusTenSec = currentDocumentTimestamp + tenSec;
+    if (now > plusTenSec) {
+      window.location.reload();
+    } else {
+    }
+  }
+  useEffect(() => {
+    reloadPage();
+  }, []);
+
+  return (
+    <div>
+      <Fragment>
+        <Sidebar profileDetail={profileDetail} />
+
+        {/* {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
+          {dispatchRider && <h3>Rider: {dispatchRider.name}</h3>}
 
           <Button color="danger" onClick={() => logOut()}>
             Sign Out
-          </Button>
-        </Fragment>
-      );
-  };
-  return (
-    <div style={{ textAlign: 'center', padding: 200 }}>{renderPage()}</div>
+          </Button> */}
+      </Fragment>
+    </div>
   );
 };
 
-const mapStateToProps = ({ profile }) => ({
-  profileDetail: profile.data,
-  dispatchRider: profile.data.dispatchRider,
-  loading: profile.loading,
-});
-
-const mapDispatchToProps = {
-  fetchProfile: actions.fetchProfile,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default Dashboard;

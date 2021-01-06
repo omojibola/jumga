@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
+import OwnedProducts from '../components/Product/OwnedProducts';
 import * as actions from '../store/actions/profileActions';
 
-import Dashboard from '../components/Dashboard/Dashboard';
-
-const DashboardPage = ({ fetchProfile, ...allProps }) => {
+const OwnedProductsPage = ({ fetchProfile, ...allProps }) => {
   //fetch profile details
   const fetchProfileDetails = async () => {
     await fetchProfile();
@@ -14,11 +14,7 @@ const DashboardPage = ({ fetchProfile, ...allProps }) => {
     fetchProfileDetails();
   }, []);
 
-  return (
-    <div>
-      <Dashboard {...allProps} />
-    </div>
-  );
+  return <OwnedProducts {...allProps} />;
 };
 
 const mapStateToProps = ({ profile }) => ({
@@ -31,4 +27,4 @@ const mapDispatchToProps = {
   fetchProfile: actions.fetchProfile,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(OwnedProductsPage);

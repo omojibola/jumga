@@ -4,6 +4,8 @@ const theme = {
     subMain: '#F9ECCC',
     white: '#ffffff',
     black: '#000000',
+    blue: '#2E3757',
+    subBlue: '#f2f2f5',
   },
 };
 
