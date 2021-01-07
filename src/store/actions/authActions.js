@@ -50,14 +50,18 @@ export const VerifyAuth = () => async (dispatch) => {
   try {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        dispatch({ type: AUTH_SUCCESS, payload: user });
+        dispatch({
+          type: AUTH_SUCCESS,
+          payload: user,
+        });
       } else {
-        dispatch({ type: AUTH_FAIL });
+        dispatch({
+          type: AUTH_FAIL,
+        });
       }
     });
-    dispatch({ type: AUTH_END });
   } catch (error) {
-    dispatch({ type: AUTH_FAIL, payload: error.message });
+    console.log(error);
   }
 };
 
@@ -107,10 +111,20 @@ export const SignIn = (data) => async (dispatch) => {
 };
 
 //sign out user
-export const SignOut = () => async () => {
+
+export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
+export const SIGN_OUT_FAIL = 'SIGN_OUT_FAIL';
+export const SIGN_OUT_START = 'SIGN_OUT_START';
+export const SIGN_OUT_END = 'SIGN_OUT_END';
+
+export const SignOut = () => async (dispatch) => {
+  dispatch({ type: SIGN_OUT_START });
   try {
     await firebase.auth().signOut();
+    dispatch({ type: SIGN_OUT_SUCCESS });
   } catch (error) {
+    dispatch({ type: SIGN_OUT_FAIL, payload: error.message });
     console.log(error);
   }
+  dispatch({ type: SIGN_OUT_END });
 };

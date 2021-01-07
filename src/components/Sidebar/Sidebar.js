@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { useHistory, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -20,8 +22,8 @@ import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import PaymentIcon from '@material-ui/icons/Payment';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
-import { renderPage } from './MainRender';
-
+import * as actions from '../../store/actions/profileActions';
+import { fetchProduct } from '../../store/actions/productActions';
 import {
   StatusWrapper,
   StatusText,
@@ -89,19 +91,6 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9) + 1,
     },
   },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    border: 'none',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -144,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Sidebar({ profileDetail }) {
+const Sidebar = ({ profileDetail, fetchProducts, fetchProfile }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -164,27 +153,24 @@ export default function Sidebar({ profileDetail }) {
     setOpen(false);
   };
 
-  //reload page on mount
-  function reloadPage() {
-    // The last "domLoading" Time //
-    var currentDocumentTimestamp = new Date(
-      performance.timing.domLoading
-    ).getTime();
-    // Current Time //
-    var now = Date.now();
-    // Ten Seconds //
-    var tenSec = 10 * 1000;
-    // Plus Ten Seconds //
-    var plusTenSec = currentDocumentTimestamp + tenSec;
-    if (now > plusTenSec) {
-      window.location.reload();
-    } else {
-    }
-  }
+  const fetchProfileDetails = async () => {
+    await fetchProfile();
+  };
+
+  const fetchProductItems = async () => {
+    await fetchProfile();
+  };
+
   useEffect(() => {
-    reloadPage();
+    fetchProfileDetails();
+
+    // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    fetchProductItems();
+    // eslint-disable-next-line
+  }, []);
   //set today's Date
   let today = new Date();
 
@@ -326,10 +312,19 @@ export default function Sidebar({ profileDetail }) {
           </ListItem>
         </StyledList>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {renderPage()}
-      </main>
     </div>
   );
-}
+};
+
+const mapStateToProps = ({ firebase }) => ({
+  profileDetail: firebase.profile,
+  dispatchRider: firebase.profile,
+  loading: firebase.profile,
+});
+
+const mapDispatchToProps = {
+  fetchProfile: actions.fetchProfile,
+  fetchProducts: fetchProduct,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

@@ -1,18 +1,30 @@
-import React, { Fragment, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { firebase } from '../../firebase/fire';
+import React, { useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Sidebar from '../Sidebar/Sidebar';
+import DashboardCard from './DashboardCard';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  toolbar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    border: 'none',
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
 
 const Dashboard = ({ profileDetail, loading, dispatchRider, ...allProps }) => {
-  const history = useHistory();
-
-  //log out user
-  const logOut = async () => {
-    await firebase.auth().signOut();
-    history.push('/');
-    window.location.reload();
-  };
+  const classes = useStyles();
 
   function reloadPage() {
     // The last "domLoading" Time //
@@ -35,17 +47,13 @@ const Dashboard = ({ profileDetail, loading, dispatchRider, ...allProps }) => {
   }, []);
 
   return (
-    <div>
-      <Fragment>
-        <Sidebar profileDetail={profileDetail} />
+    <div className={classes.root}>
+      <Sidebar />
 
-        {/* {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
-          {dispatchRider && <h3>Rider: {dispatchRider.name}</h3>}
-
-          <Button color="danger" onClick={() => logOut()}>
-            Sign Out
-          </Button> */}
-      </Fragment>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <DashboardCard />
+      </main>
     </div>
   );
 };

@@ -1,16 +1,15 @@
 import React from 'react';
-import Sidebar from '../Sidebar/Sidebar';
+import { Container } from 'reactstrap';
 
-const OwnedProducts = ({
-  profileDetail,
-  loading,
-  dispatchRider,
-  ...allprops
-}) => {
+import ProductForm from '../Modal/ProductForm';
+import OwnedProductList from './OwnedProductList';
+
+const OwnedProducts = () => {
   return (
-    <div>
-      <Sidebar />
-    </div>
+    <Container>
+      <ProductForm />
+      <OwnedProductList />
+    </Container>
   );
 };
 

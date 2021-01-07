@@ -11,7 +11,7 @@ const initialState = {
   },
 };
 
-export default (state = initialState, { type, payload }) => {
+const profileReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actions.FETCH_PROFILE_START:
       return {
@@ -75,3 +75,5 @@ export default (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+export default profileReducer;

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import {
   HeaderTop,
   NavTop,
@@ -23,10 +25,27 @@ import {
   Phone,
   LocalShipping,
 } from '@material-ui/icons';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const Header = () => {
+import { fetchProfile } from '../../store/actions/profileActions';
+import { fetchProduct } from '../../store/actions/productActions';
+
+const Header = ({ startFetchProduct, startFetchProfile }) => {
   const items = useSelector((state) => state.cart.basket);
+
+  const fetchProductDetails = async () => {
+    await startFetchProduct();
+  };
+
+  const fetchProfileDetails = async () => {
+    await startFetchProfile();
+  };
+
+  useEffect(() => {
+    fetchProductDetails();
+    fetchProfileDetails();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div>
@@ -85,4 +104,9 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapDispatchToProps = {
+  startFetchProfile: fetchProfile,
+  startFetchProduct: fetchProduct,
+};
+
+export default connect(null, mapDispatchToProps)(Header);

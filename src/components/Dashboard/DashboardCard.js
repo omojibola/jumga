@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardText,
-  CardTitle,
-} from 'reactstrap';
+import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import { StyledCardText } from './DashboardElements';
 
 import { LocalMallOutlined } from '@material-ui/icons';

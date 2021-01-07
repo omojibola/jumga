@@ -5,8 +5,15 @@ import { firebase } from '../../firebase/fire';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/profileActions';
+import { SignOut } from '../../store/actions/authActions';
 
-const Account = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
+const Account = ({
+  fetchProfile,
+  profileDetail,
+  loading,
+  dispatchRider,
+  startSignOut,
+}) => {
   const history = useHistory();
 
   //fetch profile details
@@ -20,7 +27,7 @@ const Account = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
 
   //log out user
   const logOut = async () => {
-    await firebase.auth().signOut();
+    await startSignOut();
     history.push('/');
     window.location.reload();
   };
@@ -58,6 +65,7 @@ const mapStateToProps = ({ profile }) => ({
 
 const mapDispatchToProps = {
   fetchProfile: actions.fetchProfile,
+  startSignOut: SignOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Account);

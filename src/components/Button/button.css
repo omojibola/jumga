@@ -1,8 +1,9 @@
 .button {
   background: var(--color-main) !important;
-  font-family: Poppins, sans-serif;
+  font-family: Poppins, sans-serif !important;
   font-size: 14px !important;
   color: #ffffff !important;
   border-radius: 0 !important;
   text-transform: inherit !important;
+  font-weight: 300 !important;
 }

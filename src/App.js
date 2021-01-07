@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import { VerifyAuth } from './store/actions/authActions';
 import LandingPage from './Pages/LandingPage';
 import ShopOwnerLogin from './Pages/ShopOwnerLogin';
 import Header from './components/Header/Header';
@@ -46,7 +48,7 @@ const App = () => {
           />
           <Route path={'/checkout'} component={CartPage} />
           <Route path="/log-out" component={Logout} exact />
-          {/* <Route path="/my-products" component={OwnedProductsPage} exact /> */}
+          <Route path="/my-products" component={OwnedProductsPage} exact />
           <Route path="/account" component={Account} exact />
         </Switch>
       </Router>
@@ -79,9 +81,14 @@ const App = () => {
           {/* <Route path="/my-products" component={OwnedProductsPage} exact /> */}
           <Route path="/account" component={Account} exact />
         </Switch>
+        <Footer />
       </Router>
     );
   return <div>{routes}</div>;
 };
 
-export default App;
+const mapDispatchToProps = {
+  authListener: VerifyAuth,
+};
+
+export default connect(null, mapDispatchToProps)(App);
