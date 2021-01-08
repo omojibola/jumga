@@ -8,6 +8,10 @@ html{
    
     --color-white:${(props) => props.theme.colors.white};
     --color-black:${(props) => props.theme.colors.black};
+    --color-blue:${(props) => props.theme.colors.blue};
+    --color-subBlue:${(props) => props.theme.colors.subBlue};
+
+    font-size:75%;
 }
 
 `;
