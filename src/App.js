@@ -19,6 +19,10 @@ import DashboardPage from './Pages/DashboardPage';
 import OwnedProductsPage from './Pages/OwnedProductsPage';
 import Account from './components/Account/Account';
 
+import Payment from "./components/Payment/Payment";
+import PaymentTwo from "./components/Payment/PaymentTwo";
+import PaymentConfirmed from "./components/Payment/PaymentConfirmed";
+
 const App = () => {
   let routes;
   if (
@@ -50,6 +54,9 @@ const App = () => {
           <Route path="/log-out" component={Logout} exact />
           <Route path="/my-products" component={OwnedProductsPage} exact />
           <Route path="/account" component={Account} exact />
+          <Route path={'/payment'} component={Payment}/>
+          <Route path={'/paymentTwo'} component={PaymentTwo}/>
+          <Route path={'/paymentConfirmed'} component={PaymentConfirmed}/>
         </Switch>
       </Router>
     );
@@ -80,6 +87,9 @@ const App = () => {
           <Route path="/log-out" component={Logout} exact />
           {/* <Route path="/my-products" component={OwnedProductsPage} exact /> */}
           <Route path="/account" component={Account} exact />
+          <Route path={'/payment'} component={Payment}/>
+          <Route path={'/paymentTwo'} component={PaymentTwo}/>
+          <Route path={'/paymentConfirmed'} component={PaymentConfirmed}/>
         </Switch>
         <Footer />
       </Router>

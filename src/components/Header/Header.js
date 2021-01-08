@@ -14,15 +14,12 @@ import {
   HeadSpan,
   LinkTag,
   NavLink,
-  Ship,
-  Call,
-  Cart,
+    Ship, Cart, Call
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
-import { KeyboardArrowDown, Search } from '@material-ui/icons';
-import { useHistory } from 'react-router-dom';
-
+import { KeyboardArrowDown, Search} from '@material-ui/icons';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { firebase } from '../../firebase/fire';
 
 const Header = () => {
@@ -36,7 +33,6 @@ const Header = () => {
     history.push('/');
     window.location.reload();
   };
-
   return (
     <div>
       <HeaderTop>
@@ -63,11 +59,11 @@ const Header = () => {
             )}
             <Barrier />
             {auth.email ? (
-              <NavLink to={'/shop-register'}>
+              <NavLink to={'/dashboard'}>
                 <ButtonName>Go to dashboard</ButtonName>
               </NavLink>
             ) : (
-              <NavLink to={'/dashboard'}>
+              <NavLink to={'/shop-register'}>
                 <ButtonName>Sell on Jumga</ButtonName>
               </NavLink>
             )}

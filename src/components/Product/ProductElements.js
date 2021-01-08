@@ -7,14 +7,15 @@ export const ProductCase = styled.div`
   flex-direction: column;
   background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  min-width: 200px;
+  width: 270px;
   max-height: 400px;
+  margin: 30px 0;
 `;
 
 export const ProductImage = styled.img`
   height: 200px;
   object-fit: contain;
+  padding-top: 10px;
 `;
 
 export const ProductDetails = styled.div`
@@ -39,6 +40,9 @@ export const ProductButton = styled(Button)`
   border-radius: 0 !important;
   margin-top: 20px !important;
   text-transform: inherit !important;
+  background: var(--color-main) !important;
+  color: var(--color-white) !important;
+  font-size: 16px !important;
 `;
 
 export const ImageTop = styled(CardImg)`
@@ -57,20 +61,31 @@ export const StyledCardBody = styled.div`
 export const StyledCardTitle = styled(CardTitle)`
   color: var(--color-main);
   font-size: 18px;
-  font-family: poppins;
+  font-family: Poppins, sans-serif;
   font-weight: bold;
 `;
 
 export const StyledCardText = styled(CardText)`
-  font-size: 15px;
   color: var(--color-main);
-  font-family: poppins;
+  font-family: Poppins, sans-serif;
   font-weight: bold;
+<<<<<<< HEAD
+width: 90%;
+border-radius: 0 !important;
+margin-top: 20px !important;
+text-transform: inherit !important;
+background: var(--color-main) !important;
+font-size: 16px !important;
+line-height: 24px !important;
+outline: none !important;
+
+=======
+>>>>>>> c975613e7b83ea5b9c9eacfc57589c85f603b0a9
 `;
 export const Grid = styled.div`
   display: grid;
-  gridtemplatecolumns: repeat(3, 1fr);
-  gridgap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 
   @media screen and (max-width: 500px) {
     display: block;
