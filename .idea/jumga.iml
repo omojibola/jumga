@@ -9,5 +9,6 @@
     <orderEntry type="library" name="@types/react-dom" level="application" />
     <orderEntry type="library" name="@types/react-router" level="application" />
     <orderEntry type="library" name="@types/styled-components" level="application" />
+    <orderEntry type="library" name="@types/node" level="application" />
   </component>
 </module>

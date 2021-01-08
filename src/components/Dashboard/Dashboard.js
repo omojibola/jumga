@@ -33,7 +33,7 @@ const Dashboard = ({ fetchProfile, profileDetail, loading, dispatchRider }) => {
         <Fragment>
           <h2>Dashboard</h2>
           {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
-          {dispatchRider && <h3>Status: {dispatchRider.name}</h3>}
+          {dispatchRider && <h3>Dispatch Rider: {dispatchRider.name}</h3>}
 
           <Button color="danger" onClick={() => logOut()}>
             Sign Out

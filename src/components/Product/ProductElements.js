@@ -8,7 +8,7 @@ background: #FFFFFF;
 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 max-width: 300px;
 min-width: 200px;
-max-height: 400px;
+margin: 30px 0;
 `;
 
 export const ProductImage = styled.img`
@@ -40,6 +40,11 @@ width: 90%;
 border-radius: 0 !important;
 margin-top: 20px !important;
 text-transform: inherit !important;
+background: var(--color-main) !important;
+color: var(--color-white) !important;
+font-size: 16px !important;
+line-height: 24px !important;
+outline: none !important;
  
 `;
 
