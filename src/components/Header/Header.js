@@ -16,15 +16,10 @@ import {
   HeadSpan,
   LinkTag,
   NavLink,
+    Ship, Cart, Call
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
-import {
-  KeyboardArrowDown,
-  Search,
-  ShoppingCartOutlined,
-  Phone,
-  LocalShipping,
-} from '@material-ui/icons';
+import { KeyboardArrowDown, Search} from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 
 import { fetchProfile } from '../../store/actions/profileActions';
@@ -47,19 +42,6 @@ const Header = ({ startFetchProduct, startFetchProfile }) => {
     // eslint-disable-next-line
   }, []);
 
-  return (
-    <div>
-      <HeaderTop>
-        <NavTop>
-          <Wrapper>
-            <Phone fontSize="small" />
-            <Paragraph1> + 234 811 123 5678</Paragraph1>
-            <Barrier />
-            <LocalShipping fontSize="small" />
-            <Paragraph1> Shipping & Returns</Paragraph1>
-          </Wrapper>
-
-
     return (
         <div>
             <HeaderTop>
@@ -75,13 +57,9 @@ const Header = ({ startFetchProduct, startFetchProfile }) => {
                         <BrandName>JUMGA</BrandName>
                     </LinkTag>
                     <Wrapper>
-                        {auth.email ? <Wrapper>
-                                <Paragraph1>Welcome, {auth.email}</Paragraph1>
-                            <ButtonName onClick={() => logOut()}>Sign Out</ButtonName>
-                        </Wrapper> :
                             <LinkTag to={'/shop-login'}>
                                 <ButtonName>Login</ButtonName>
-                            </LinkTag>}
+                            </LinkTag>
                         <Barrier/>
                         <NavLink to={'/shop-register'}>
                             <ButtonName>Sell on Jumga</ButtonName>

@@ -31,5 +31,10 @@ justify-content: center;
 export const MoreButton = styled(Button)`
 text-transform: inherit !important;
 margin: 20px 0 !important;
-
+color: var(--color-main) !important;
+border-radius: 0 !important;
+border-color: var(--color-main) !important;
+font-size: 16px !important;
+line-height: 24px !important;
+padding: 10px 20px !important;
 `;

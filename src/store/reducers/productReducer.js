@@ -1,16 +1,22 @@
 import * as actions from '../actions/productActions';
 
 const initialState = {
-  addProduct: {
-    error: null,
-    loading: false,
-    data: {},
-  },
-  fetchProduct: {
-    error: null,
-    loading: false,
-    data: [],
-  },
+  // addProduct: {
+  //   error: null,
+  //   loading: false,
+  //   data: {},
+  // },
+  // fetchProduct: {
+  //   error: null,
+  //   loading: false,
+  //   data: [],
+  // },
+  // fetchAllProduct: {
+  //   error: null,
+  //   loading: false,
+  //   products: []
+  // }
+  successful: false
 };
 
 const productReducer = (state = initialState, { type, payload }) => {
@@ -72,6 +78,36 @@ const productReducer = (state = initialState, { type, payload }) => {
           loading: false,
           error: payload,
         },
+      };
+
+    case actions.FETCH_ALL_PRODUCT_START:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
+          loading: true,
+        }
+
+      };
+    case actions.FETCH_ALL_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
+          loading: false,
+          error: false,
+          products: payload,
+        },
+
+      };
+    case actions.FETCH_ALL_PRODUCT_FAIL:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
+          loading: false,
+          error: payload
+        }
       };
     default:
       return state;

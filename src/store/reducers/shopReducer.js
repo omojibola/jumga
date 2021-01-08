@@ -1,7 +1,13 @@
 import * as actionTypes from '../actions/shopActions';
+import * as actions from '../../store/actions/productActions';
 
 const initialState = {
   basket: [],
+  fetchProduct: {
+    error: null,
+    loading: false,
+    products: []
+  }
 };
 
 export const getBasketTotal = (basket) =>
@@ -35,6 +41,33 @@ const shopReducer = (state = initialState, action) => {
       return {
         ...state,
         basket: [],
+      };
+    case actions.FETCH_ALL_PRODUCT_START:
+      return {
+        ...state,
+        fetchProduct: {
+         ...state.fetchProduct,
+          loading: true
+        },
+      };
+
+    case actions.FETCH_ALL_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        fetchProduct: {
+          ...state.fetchProduct,
+          loading: false,
+          products: action.payload,
+        },
+      };
+    case actions.FETCH_ALL_PRODUCT_FAIL:
+      return {
+        ...state,
+        fetchProduct: {
+          ...state.fetchProduct,
+          loading: false,
+          error: action.payload
+        }
       };
     default:
       return state;

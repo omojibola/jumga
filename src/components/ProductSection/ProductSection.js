@@ -4,7 +4,7 @@ import Product from "../Product/Product";
 import product from '../../img/photo-1515940175183-6798529cb860 1.jpg';
 import speaker from '../../img/speaker.jpeg';
 
-const ProductSection = ({text, buttonText}) => {
+const ProductSection = ({text, buttonText, clicked}) => {
     return (
         <>
             <ProductCover>
@@ -16,7 +16,7 @@ const ProductSection = ({text, buttonText}) => {
                     <Product id={4} image={"https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"} price={1500} name={'The Lean StartUp'}/>
                 </ProductCase>
                 <ProductWrap>
-                    <MoreButton variant={'outlined'}>{buttonText}</MoreButton>
+                    <MoreButton onClick={clicked} variant={'outlined'}>{buttonText}</MoreButton>
                 </ProductWrap>
             </ProductCover>
         </>
