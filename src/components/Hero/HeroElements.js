@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../utils/theme';
-import { LocalShipping, LiveHelp, Payment } from '@material-ui/icons';
+import {LocalShipping, LiveHelp, Payment} from "@material-ui/icons";
 import man from '../../img/man.jpg';
 import woman from '../../img/woman.jpg';
 import child from '../../img/child.jpg';
@@ -21,6 +20,7 @@ export const HeroText = styled.div`
   display: flex;
   flex-direction: column;
   margin: 60px 10px;
+  width: 35%;
 `;
 
 export const HeroHeading = styled.h1`
@@ -38,7 +38,6 @@ export const HeroParagraph = styled.p`
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
-
   color: var(--color-black);
   width: 80%;
   padding-bottom: 60px;
@@ -51,8 +50,6 @@ export const HeadingSpan = styled.span`
   font-weight: normal;
   font-size: 36px;
   line-height: 54px;
-  //color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
   color: var(--color-black);
 `;
 
@@ -68,7 +65,7 @@ export const Hero1 = styled.div`
 `;
 
 export const HeroImage = styled.div`
-  width: 35%;
+  width: 45%;
   display: flex;
 `;
 
@@ -121,8 +118,11 @@ export const Collection = styled.div`
 
 export const CollectionItem = styled.div`
   background-image: url(${man});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -130,8 +130,11 @@ export const CollectionItem = styled.div`
 
 export const CollectionItem2 = styled.div`
   background-image: url(${woman});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -139,8 +142,11 @@ export const CollectionItem2 = styled.div`
 
 export const CollectionItem3 = styled.div`
   background-image: url(${child});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 420px;
-  min-width: 320px;
+  width: 30%;
   padding: 20px;
   display: flex;
   align-items: center;

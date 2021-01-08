@@ -5,7 +5,7 @@ display: flex;
 width: 80%;
 margin: 0 auto;
 padding: 50px 0;
-align-items: center;
+//align-items: center;
 `;
 
 export const CheckoutItems = styled.div`

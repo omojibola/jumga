@@ -6,4 +6,5 @@
   border-radius: 0 !important;
   text-transform: inherit !important;
   font-weight: 300 !important;
+  outline: none;
 }

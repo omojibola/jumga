@@ -13,6 +13,7 @@ const Product = ({ id, image, name, price }) => {
   const items = useSelector((state) => state.cart.basket);
   const dispatch = useDispatch();
 
+
   const addToBasket = () => {
     dispatch(
       actionTypes.addItem({
@@ -22,7 +23,6 @@ const Product = ({ id, image, name, price }) => {
         image: image,
       })
     );
-    console.log(items);
   };
 
   return (

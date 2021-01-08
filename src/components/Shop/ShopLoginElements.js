@@ -14,7 +14,6 @@ export const Container = styled.div`
 export const Column = styled(Col)`
   background: var(--color-subMain);
   position: relative;
-
   @media screen and (max-width: 575px) {
     display: none !important;
   }
@@ -70,7 +69,6 @@ export const FormInput = styled(Field)`
   margin: 10px 0;
   text-indent: 5px;
   box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
-
   &:focus {
     outline: none;
   }
@@ -84,7 +82,6 @@ export const FormSelect = styled.select`
   margin: 10px 0;
   text-indent: 5px;
   box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
-
   &:focus {
     outline: none;
   }
@@ -95,7 +92,6 @@ export const Checkbox = styled.input`
 `;
 export const SmallText = styled.p`
   color: #000;
-  font-weight: 12px;
   flex-direction: row;
 `;
 
@@ -109,16 +105,14 @@ export const FormButton = styled.button`
   border: ${({ white }) =>
     white ? `1px solid var(--color-main)` : `1px solid var(--color-main)`};
   color: ${({ white }) => (white ? `var(--color-main)` : `var(--color-white)`)};
-
   &:focus {
     outline: none;
   }
-
   &:hover {
     border: 1px solid var(--color-main);
     background: ${({ white }) => (white ? `var(--color-main)` : `transparent`)};
     color: ${({ white }) =>
-      white ? `var(--color-white)` : `var(--color-main)`};
+    white ? `var(--color-white)` : `var(--color-main)`};
     transition: 0.3s ease-in;
   }
 `;
@@ -131,11 +125,9 @@ export const FormButtonLink = styled.div`
   box-shadow: -2px 7px 20px 0px rgba(204, 204, 204, 1);
   border: none;
   color: var(--color-white);
-
   &:focus {
     outline: none;
   }
-
   &:hover {
     border: 1px solid var(--color-main);
     background: transparent;
@@ -168,18 +160,16 @@ export const TextWrapper2 = styled.button`
   margin: 0 auto;
   cursor: pointer;
   border: none;
-
   &:focus {
     outline: none;
   }
 `;
 export const Text = styled.div`
-  flex-direction:row
+  flex-direction:row;
   text-align: left;
   color: ${({ black }) => (black ? `#000` : `#c4c4c4`)};
   font-size: 14px;
   
-
 `;
 
 export const Texttwo = styled(Link)`
@@ -191,7 +181,6 @@ export const Texttwo = styled(Link)`
   text-decoration: none;
   margin-left: 1px;
   cursor: pointer;
-
   &:hover {
     color: ${({ main }) => (main ? `var(--color-main)` : `#fff`)};
   }

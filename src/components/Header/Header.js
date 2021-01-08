@@ -59,49 +59,62 @@ const Header = ({ startFetchProduct, startFetchProfile }) => {
             <Paragraph1> Shipping & Returns</Paragraph1>
           </Wrapper>
 
-          <BrandName>
-            <LinkTag to={'/'}>JUMGA</LinkTag>
-          </BrandName>
 
-          <Wrapper>
-            <ButtonName>
-              <NavLink to={'/'}> Login</NavLink>
-            </ButtonName>
-            <Barrier />
-            <ButtonName>
-              <NavLink to={'/shop-login'}> Sell on Jumga</NavLink>
-            </ButtonName>
-          </Wrapper>
-        </NavTop>
-        <NavBottom>
-          <Wrapper>
-            <Group>Categories</Group>
-            <KeyboardArrowDown />
-          </Wrapper>
-          <Wrapper>
-            <Group dark>Brands</Group>
-            <KeyboardArrowDown />
-          </Wrapper>
-          <SearchWrapper>
-            <SearchContainer>
-              <Search color="disabled" />
-              <SearchInput placeholder={'Search Products'} />
-            </SearchContainer>
-            <ButtonName>Search</ButtonName>
-          </SearchWrapper>
-          <LinkTag to={'/checkout'}>
-            <Wrapper>
-              <Paragraph1 dark weight>
-                Cart
-              </Paragraph1>
-              <ShoppingCartOutlined />
-              <HeadSpan>{items.length}</HeadSpan>
-            </Wrapper>
-          </LinkTag>
-        </NavBottom>
-      </HeaderTop>
-    </div>
-  );
+    return (
+        <div>
+            <HeaderTop>
+                <NavTop>
+                    <Wrapper>
+                        <Call fontSize='small'/>
+                        <Paragraph1> + 234 811 123 5678</Paragraph1>
+                        <Barrier/>
+                        <Ship fontSize='small'/>
+                        <Paragraph1> Shipping & Returns</Paragraph1>
+                    </Wrapper>
+                    <LinkTag to={'/'}>
+                        <BrandName>JUMGA</BrandName>
+                    </LinkTag>
+                    <Wrapper>
+                        {auth.email ? <Wrapper>
+                                <Paragraph1>Welcome, {auth.email}</Paragraph1>
+                            <ButtonName onClick={() => logOut()}>Sign Out</ButtonName>
+                        </Wrapper> :
+                            <LinkTag to={'/shop-login'}>
+                                <ButtonName>Login</ButtonName>
+                            </LinkTag>}
+                        <Barrier/>
+                        <NavLink to={'/shop-register'}>
+                            <ButtonName>Sell on Jumga</ButtonName>
+                        </NavLink>
+                    </Wrapper>
+                </NavTop>
+                <NavBottom>
+                    <Wrapper>
+                        <Group>Categories</Group>
+                        <KeyboardArrowDown/>
+                    </Wrapper>
+                    <Wrapper>
+                        <Group>Brands</Group>
+                        <KeyboardArrowDown/>
+                    </Wrapper>
+                    <SearchWrapper>
+                        <SearchContainer>
+                            <Search color='disabled'/>
+                            <SearchInput placeholder={'Search Products'}/>
+                        </SearchContainer>
+                        <ButtonName>Search</ButtonName>
+                    </SearchWrapper>
+                    <LinkTag to={'/checkout'}>
+                        <Wrapper>
+                            <Paragraph1 dark weight>Cart</Paragraph1>
+                            <Cart/>
+                            <HeadSpan>{items.length}</HeadSpan>
+                        </Wrapper>
+                    </LinkTag>
+                </NavBottom>
+            </HeaderTop>
+        </div>
+    );
 };
 
 const mapDispatchToProps = {
