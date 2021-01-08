@@ -13,9 +13,6 @@ import {
   StyledForm,
   FormInput,
   FormButton,
-  Checkbox,
-  SmallText,
-  WrapperTwo,
   TextWrapper,
   Text,
   Texttwo,
@@ -56,10 +53,6 @@ const ShopLogin = ({ loading, error, uid, signIn }) => {
                   name="password"
                   placeholder="Password"
                 />
-                <WrapperTwo>
-                  <Checkbox type="checkbox" />
-                  <SmallText>Keep Me Logged In</SmallText>
-                </WrapperTwo>
 
                 <FormButton>{loading ? 'logging in...' : ' Log In'}</FormButton>
               </StyledForm>
