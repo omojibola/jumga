@@ -69,6 +69,7 @@ export const StyledCardText = styled(CardText)`
   color: var(--color-main);
   font-family: Poppins, sans-serif;
   font-weight: bold;
+<<<<<<< HEAD
 width: 90%;
 border-radius: 0 !important;
 margin-top: 20px !important;
@@ -78,6 +79,8 @@ font-size: 16px !important;
 line-height: 24px !important;
 outline: none !important;
 
+=======
+>>>>>>> c975613e7b83ea5b9c9eacfc57589c85f603b0a9
 `;
 export const Grid = styled.div`
   display: grid;

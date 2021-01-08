@@ -23,6 +23,7 @@ export const addProduct = (data) => async (dispatch, getState) => {
       productImage: url || '',
       createdBy: uid,
       createdAt: firebase.firestore.Timestamp.now(),
+      shopName: data.shopName,
     });
 
     dispatch({ type: ADD_PRODUCT_SUCCESS });
