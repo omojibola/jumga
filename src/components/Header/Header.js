@@ -1,23 +1,63 @@
-import React from "react";
-import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, Group,
-    SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag, NavLink, Ship, Call, Cart} from "./HeaderElements";
-import ButtonName from "../Button/ButtonName";
-import {KeyboardArrowDown, Search} from "@material-ui/icons";
-import {useHistory} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
+import {
+  HeaderTop,
+  NavTop,
+  Paragraph1,
+  Wrapper,
+  BrandName,
+  Barrier,
+  NavBottom,
+  Group,
+  SearchContainer,
+  SearchInput,
+  SearchWrapper,
+  HeadSpan,
+  LinkTag,
+  NavLink,
+} from './HeaderElements';
+import ButtonName from '../Button/ButtonName';
+import {
+  KeyboardArrowDown,
+  Search,
+  ShoppingCartOutlined,
+  Phone,
+  LocalShipping,
+} from '@material-ui/icons';
 import { useSelector } from 'react-redux';
-import {firebase} from "../../firebase/fire";
 
-const Header = () => {
-    const items = useSelector((state) => state.cart.basket);
-    const auth = useSelector((state) => state.auth);
-    const history = useHistory();
+import { fetchProfile } from '../../store/actions/profileActions';
+import { fetchProduct } from '../../store/actions/productActions';
 
-    const logOut = async () => {
-        await firebase.auth().signOut();
-        history.push('/');
-        window.location.reload();
-    };
+const Header = ({ startFetchProduct, startFetchProfile }) => {
+  const items = useSelector((state) => state.cart.basket);
+
+  const fetchProductDetails = async () => {
+    await startFetchProduct();
+  };
+
+  const fetchProfileDetails = async () => {
+    await startFetchProfile();
+  };
+
+  useEffect(() => {
+    fetchProductDetails();
+    fetchProfileDetails();
+    // eslint-disable-next-line
+  }, []);
+
+  return (
+    <div>
+      <HeaderTop>
+        <NavTop>
+          <Wrapper>
+            <Phone fontSize="small" />
+            <Paragraph1> + 234 811 123 5678</Paragraph1>
+            <Barrier />
+            <LocalShipping fontSize="small" />
+            <Paragraph1> Shipping & Returns</Paragraph1>
+          </Wrapper>
 
 
     return (
@@ -77,4 +117,9 @@ const Header = () => {
     );
 };
 
-export default Header;
+const mapDispatchToProps = {
+  startFetchProfile: fetchProfile,
+  startFetchProduct: fetchProduct,
+};
+
+export default connect(null, mapDispatchToProps)(Header);

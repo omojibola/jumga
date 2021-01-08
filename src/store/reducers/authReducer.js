@@ -7,6 +7,7 @@ const initialState = {
   authenticated: false,
   error: null,
   loading: false,
+  signout: null,
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
@@ -50,6 +51,28 @@ const authReducer = (state = initialState, { type, payload }) => {
         authenticated: true,
         loading: false,
         error: false,
+      };
+
+    case actions.SIGN_OUT_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actions.SIGN_OUT_SUCCESS:
+      return {
+        uid: '',
+        email: '',
+        shopName: '',
+        loading: false,
+        authenticated: false,
+        error: null,
+        signout: true,
+      };
+    case actions.SIGN_OUT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
       };
 
     default:

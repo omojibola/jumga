@@ -11,10 +11,10 @@ export const UPDATE_STATUS_START = 'UPDATE_STATUS_START';
 export const UPDATE_STATUS_END = 'UPDATE_STATUS_END';
 
 //fetch profile
-export const fetchProfile = () => async (dispatch, state) => {
+export const fetchProfile = () => async (dispatch, getState) => {
   dispatch({ type: FETCH_PROFILE_START });
   try {
-    const uid = state().auth.uid;
+    const uid = getState().firebase.auth.uid;
     const res = await database.collection('users').doc(uid).get();
     const userProfile = res.data();
     dispatch({ type: FETCH_PROFILE_SUCCESS, payload: userProfile });
@@ -25,8 +25,8 @@ export const fetchProfile = () => async (dispatch, state) => {
 };
 
 //update profile status
-export const updateProfileStatus = (user) => async (dispatch, state) => {
-  const uid = state().auth.uid;
+export const updateProfileStatus = (user) => async (dispatch, getState) => {
+  const uid = getState().firebase.auth.uid;
 
   dispatch({ type: UPDATE_STATUS_START });
   try {

@@ -1,7 +1,6 @@
 import React, { useEffect, Fragment } from 'react';
 import image from '../../img/backgroundimage.svg';
 import * as actions from '../../store/actions/profileActions';
-import { createSubAccount } from '../../Functions/FlutterwaveFunctions';
 
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
