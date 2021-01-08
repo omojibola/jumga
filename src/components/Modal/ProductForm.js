@@ -5,7 +5,7 @@ import { Alert } from 'reactstrap';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import * as Yup from 'yup';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 import * as actions from '../../store/actions/productActions';
 import {
@@ -43,6 +43,7 @@ const ProductSchema = Yup.object().shape({
 });
 
 const ProductForm = ({ startAddProduct, error, loading }) => {
+  const profile = useSelector((state) => state.firebase.profile);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
@@ -106,6 +107,7 @@ const ProductForm = ({ startAddProduct, error, loading }) => {
                 title: '',
                 description: '',
                 productImage: '',
+                shopName: profile.shopName,
               }}
               validationSchema={ProductSchema}
               onSubmit={async (values, { setSubmitting, resetForm }) => {

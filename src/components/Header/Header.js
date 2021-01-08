@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-
+import React from 'react';
 import {
   HeaderTop,
   NavTop,
@@ -16,110 +14,94 @@ import {
   HeadSpan,
   LinkTag,
   NavLink,
+  Ship,
+  Call,
+  Cart,
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
-import {
-  KeyboardArrowDown,
-  Search,
-  ShoppingCartOutlined,
-  Phone,
-  LocalShipping,
-} from '@material-ui/icons';
+import { KeyboardArrowDown, Search } from '@material-ui/icons';
+import { useHistory } from 'react-router-dom';
+
 import { useSelector } from 'react-redux';
+import { firebase } from '../../firebase/fire';
 
-import { fetchProfile } from '../../store/actions/profileActions';
-import { fetchProduct } from '../../store/actions/productActions';
-
-const Header = ({ startFetchProduct, startFetchProfile }) => {
+const Header = () => {
   const items = useSelector((state) => state.cart.basket);
+  const auth = useSelector((state) => state.auth);
+  const profile = useSelector((state) => state.firebase.profile);
+  const history = useHistory();
 
-  const fetchProductDetails = async () => {
-    await startFetchProduct();
+  const logOut = async () => {
+    await firebase.auth().signOut();
+    history.push('/');
+    window.location.reload();
   };
-
-  const fetchProfileDetails = async () => {
-    await startFetchProfile();
-  };
-
-  useEffect(() => {
-    fetchProductDetails();
-    fetchProfileDetails();
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div>
       <HeaderTop>
         <NavTop>
           <Wrapper>
-            <Phone fontSize="small" />
+            <Call fontSize="small" />
             <Paragraph1> + 234 811 123 5678</Paragraph1>
             <Barrier />
-            <LocalShipping fontSize="small" />
+            <Ship fontSize="small" />
             <Paragraph1> Shipping & Returns</Paragraph1>
           </Wrapper>
-
-
-    return (
-        <div>
-            <HeaderTop>
-                <NavTop>
-                    <Wrapper>
-                        <Call fontSize='small'/>
-                        <Paragraph1> + 234 811 123 5678</Paragraph1>
-                        <Barrier/>
-                        <Ship fontSize='small'/>
-                        <Paragraph1> Shipping & Returns</Paragraph1>
-                    </Wrapper>
-                    <LinkTag to={'/'}>
-                        <BrandName>JUMGA</BrandName>
-                    </LinkTag>
-                    <Wrapper>
-                        {auth.email ? <Wrapper>
-                                <Paragraph1>Welcome, {auth.email}</Paragraph1>
-                            <ButtonName onClick={() => logOut()}>Sign Out</ButtonName>
-                        </Wrapper> :
-                            <LinkTag to={'/shop-login'}>
-                                <ButtonName>Login</ButtonName>
-                            </LinkTag>}
-                        <Barrier/>
-                        <NavLink to={'/shop-register'}>
-                            <ButtonName>Sell on Jumga</ButtonName>
-                        </NavLink>
-                    </Wrapper>
-                </NavTop>
-                <NavBottom>
-                    <Wrapper>
-                        <Group>Categories</Group>
-                        <KeyboardArrowDown/>
-                    </Wrapper>
-                    <Wrapper>
-                        <Group>Brands</Group>
-                        <KeyboardArrowDown/>
-                    </Wrapper>
-                    <SearchWrapper>
-                        <SearchContainer>
-                            <Search color='disabled'/>
-                            <SearchInput placeholder={'Search Products'}/>
-                        </SearchContainer>
-                        <ButtonName>Search</ButtonName>
-                    </SearchWrapper>
-                    <LinkTag to={'/checkout'}>
-                        <Wrapper>
-                            <Paragraph1 dark weight>Cart</Paragraph1>
-                            <Cart/>
-                            <HeadSpan>{items.length}</HeadSpan>
-                        </Wrapper>
-                    </LinkTag>
-                </NavBottom>
-            </HeaderTop>
-        </div>
-    );
+          <LinkTag to={'/'}>
+            <BrandName>JUMGA</BrandName>
+          </LinkTag>
+          <Wrapper>
+            {auth.email ? (
+              <Wrapper>
+                <Paragraph1>Welcome, {profile.shopName}</Paragraph1>
+              </Wrapper>
+            ) : (
+              <LinkTag to={'/shop-login'}>
+                <ButtonName>Login</ButtonName>
+              </LinkTag>
+            )}
+            <Barrier />
+            {auth.email ? (
+              <NavLink to={'/shop-register'}>
+                <ButtonName>Go to dashboard</ButtonName>
+              </NavLink>
+            ) : (
+              <NavLink to={'/dashboard'}>
+                <ButtonName>Sell on Jumga</ButtonName>
+              </NavLink>
+            )}
+          </Wrapper>
+        </NavTop>
+        <NavBottom>
+          <Wrapper>
+            <Group>Categories</Group>
+            <KeyboardArrowDown />
+          </Wrapper>
+          <Wrapper>
+            <Group>Brands</Group>
+            <KeyboardArrowDown />
+          </Wrapper>
+          <SearchWrapper>
+            <SearchContainer>
+              <Search color="disabled" />
+              <SearchInput placeholder={'Search Products'} />
+            </SearchContainer>
+            <ButtonName>Search</ButtonName>
+          </SearchWrapper>
+          <LinkTag to={'/checkout'}>
+            <Wrapper>
+              <Paragraph1 dark weight>
+                Cart
+              </Paragraph1>
+              <Cart />
+              <HeadSpan>{items.length}</HeadSpan>
+            </Wrapper>
+          </LinkTag>
+        </NavBottom>
+      </HeaderTop>
+    </div>
+  );
 };
 
-const mapDispatchToProps = {
-  startFetchProfile: fetchProfile,
-  startFetchProduct: fetchProduct,
-};
-
-export default connect(null, mapDispatchToProps)(Header);
+export default Header;
