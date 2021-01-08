@@ -28,61 +28,57 @@ const ShopLogin = ({ loading, error, uid, signIn }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (uid) {
+    if (uid && uid !== null) {
       history.replace('/dashboard');
     }
   }, [uid]);
   return (
-    <Container style={{ textAlign: 'center' }}>
-      <Row>
-        <Col sm="6">
-          <Wrapper>
-            <Heading>Welcome Back</Heading>
-            <FormContainer>
+      <Container style={{ textAlign: 'center' }}>
+        <Row>
+          <Col sm="6">
+            <Wrapper>
+              <Heading>Welcome Back</Heading>
+              {error && <Alert color="danger">{error}</Alert>}
+              <FormContainer
+                  initialValues={{
+                    email: '',
+                    password: '',
+                  }}
+                  onSubmit={async (values, { setSubmitting }) => {
+                    await signIn(values);
+                    setSubmitting(false);
+                  }}
+              >
+                <StyledForm>
+                  <FormInput type="email" name="email" placeholder="Email" />
+                  <FormInput
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                  />
+                  <WrapperTwo>
+                    <Checkbox type="checkbox" />
+                    <SmallText>Keep Me Logged In</SmallText>
+                  </WrapperTwo>
 
-            {error && <Alert color="danger">{error}</Alert>}
-            <FormContainer
-              initialValues={{
-                email: '',
-                password: '',
-              }}
-              onSubmit={async (values, { setSubmitting }) => {
-                await signIn(values);
-                setSubmitting(false);
-              }}
-            >
-              <StyledForm>
-                <FormInput type="email" name="email" placeholder="Email" />
-                <FormInput
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                />
-                <WrapperTwo>
-                  <Checkbox type="checkbox" />
-                  <SmallText>Keep Me Logged In</SmallText>
-                </WrapperTwo>
-
-                <FormButton>{loading ? 'logging in...' : ' Log In'}</FormButton>
-              </StyledForm>
-            </FormContainer>
-            <TextWrapper>
-              <Text>Don't have an account?</Text>
-              <Texttwo to="/shop-register" main>
-                Sign Up
-              </Texttwo>
-            </TextWrapper>
-            </FormContainer>
-          </Wrapper>
-
-        </Col>
-        <Column fluid sm="6">
-          <BackgroundImage>
-            <Image src={image} />
-          </BackgroundImage>
-        </Column>
-      </Row>
-    </Container>
+                  <FormButton>{loading ? 'logging in...' : ' Log In'}</FormButton>
+                </StyledForm>
+              </FormContainer>
+              <TextWrapper>
+                <Text>Don't have an account?</Text>
+                <Texttwo to="/shop-register" main>
+                  Sign Up
+                </Texttwo>
+              </TextWrapper>
+            </Wrapper>
+          </Col>
+          <Column fluid sm="6">
+            <BackgroundImage>
+              <Image src={image} />
+            </BackgroundImage>
+          </Column>
+        </Row>
+      </Container>
   );
 };
 const mapStateToProps = ({ auth }) => ({

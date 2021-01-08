@@ -3,11 +3,21 @@ import {HeaderTop, NavTop, Paragraph1, Wrapper, BrandName, Barrier, NavBottom, G
     SearchContainer, SearchInput, SearchWrapper, HeadSpan, LinkTag, NavLink, Ship, Call, Cart} from "./HeaderElements";
 import ButtonName from "../Button/ButtonName";
 import {KeyboardArrowDown, Search} from "@material-ui/icons";
+import {useHistory} from "react-router-dom";
 
 import { useSelector } from 'react-redux';
+import {firebase} from "../../firebase/fire";
 
 const Header = () => {
     const items = useSelector((state) => state.cart.basket);
+    const auth = useSelector((state) => state.auth);
+    const history = useHistory();
+
+    const logOut = async () => {
+        await firebase.auth().signOut();
+        history.push('/');
+        window.location.reload();
+    };
 
 
     return (
@@ -24,14 +34,18 @@ const Header = () => {
                     <LinkTag to={'/'}>
                         <BrandName>JUMGA</BrandName>
                     </LinkTag>
-
                     <Wrapper>
-                        <ButtonName>Login</ButtonName>
+                        {auth.email ? <Wrapper>
+                                <Paragraph1>Welcome, {auth.email}</Paragraph1>
+                            <ButtonName onClick={() => logOut()}>Sign Out</ButtonName>
+                        </Wrapper> :
+                            <LinkTag to={'/shop-login'}>
+                                <ButtonName>Login</ButtonName>
+                            </LinkTag>}
                         <Barrier/>
-                        <NavLink to={'/shop-login'}>
+                        <NavLink to={'/shop-register'}>
                             <ButtonName>Sell on Jumga</ButtonName>
                         </NavLink>
-
                     </Wrapper>
                 </NavTop>
                 <NavBottom>

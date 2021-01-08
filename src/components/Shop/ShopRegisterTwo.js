@@ -101,10 +101,10 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
                     <option value="" disabled>
                       Please Select an option
                     </option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="Kenya">Kenya</option>
-                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="GH">Ghana</option>
+                    <option value="KE">Kenya</option>
+                    <option value="UK">United Kingdom</option>
                   </FormInput>
 
                   <TextWrapper2 type="submit">
