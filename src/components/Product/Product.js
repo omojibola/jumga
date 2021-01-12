@@ -8,6 +8,7 @@ import {
 } from './ProductElements';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from '../../store/actions/shopActions';
+import CurrencyFormat from "react-currency-format";
 
 const Product = ({ id, image, name, price }) => {
   const items = useSelector((state) => state.cart.basket);
@@ -31,7 +32,20 @@ const Product = ({ id, image, name, price }) => {
         <ProductImage src={image} />
         <ProductDetails>
           <ProductName>{name}</ProductName>
-          <ProductName weight>NGN {price}.00</ProductName>
+          <ProductName weight>NGN
+              <CurrencyFormat
+                  renderText={(value) => (
+                      <>
+                          {value}.00
+                      </>
+                  )}
+                  decimalScale={2}
+                  value={price}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={" "}
+              />
+          </ProductName>
           <ProductButton onClick={addToBasket} variant={'outlined'}>
             Add to Cart
           </ProductButton>
