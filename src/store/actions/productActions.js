@@ -72,19 +72,20 @@ export const FETCH_ALL_PRODUCT_START = 'FETCH_ALL_PRODUCT_START';
 export const FETCH_ALL_PRODUCT_END = 'FETCH_ALL_PRODUCT_END';
 
 export const fetchAllProducts = () => async (dispatch, getState) => {
+  console.log('starting fetch function');
   dispatch({ type: FETCH_ALL_PRODUCT_START });
   console.log('fetching all products');
   let allProducts = [];
   try {
     const res = await database.collection('products').get();
-    const products = res.data();
 
-    products.forEach((doc) => {
+    res.forEach((doc) => {
         allProducts.push({
           id: doc.id,
           ...doc.data()
         });
     });
+    console.log(allProducts);
     dispatch({ type: FETCH_ALL_PRODUCT_SUCCESS, payload: allProducts });
   } catch (error) {
     dispatch({ type: FETCH_ALL_PRODUCT_FAIL, payload: error });

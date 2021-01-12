@@ -32,7 +32,7 @@ const OrderTotal = ({checkout}) => {
                         value={getBasketTotal(basket)}
                         displayType={"text"}
                         thousandSeparator={true}
-                        prefix={"N"}
+                        prefix={"N "}
                     />
                 </SummaryDetails>
                 <SummaryDetails>
@@ -49,7 +49,7 @@ const OrderTotal = ({checkout}) => {
                         value={getBasketTotal(basket) * 0.1}
                         displayType={"text"}
                         thousandSeparator={true}
-                        prefix={"N"}
+                        prefix={"N "}
                     />
                 </SummaryDetails>
                 <SummaryDetails>
@@ -66,7 +66,7 @@ const OrderTotal = ({checkout}) => {
                         value={getBasketTotal(basket) + getBasketTotal(basket) * 0.1}
                         displayType={"text"}
                         thousandSeparator={true}
-                        prefix={"N"}
+                        prefix={"N "}
                     />
                 </SummaryDetails>
                 {checkout &&
