@@ -6,14 +6,12 @@ import {
   ProductImage,
   ProductName,
 } from './ProductElements';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as actionTypes from '../../store/actions/shopActions';
-import CurrencyFormat from "react-currency-format";
+import CurrencyFormat from 'react-currency-format';
 
-const Product = ({ id, image, name, price }) => {
-  const items = useSelector((state) => state.cart.basket);
+const Product = ({ id, image, name, price, subaccountId }) => {
   const dispatch = useDispatch();
-
 
   const addToBasket = () => {
     dispatch(
@@ -22,6 +20,7 @@ const Product = ({ id, image, name, price }) => {
         name: name,
         price: price,
         image: image,
+        subaccountId: subaccountId,
       })
     );
   };
@@ -32,19 +31,16 @@ const Product = ({ id, image, name, price }) => {
         <ProductImage src={image} />
         <ProductDetails>
           <ProductName>{name}</ProductName>
-          <ProductName weight>NGN
-              <CurrencyFormat
-                  renderText={(value) => (
-                      <>
-                          {value}.00
-                      </>
-                  )}
-                  decimalScale={2}
-                  value={price}
-                  displayType={"text"}
-                  thousandSeparator={true}
-                  prefix={" "}
-              />
+          <ProductName weight>
+            USD
+            <CurrencyFormat
+              renderText={(value) => <>{value}.00</>}
+              decimalScale={2}
+              value={price}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={' '}
+            />
           </ProductName>
           <ProductButton onClick={addToBasket} variant={'outlined'}>
             Add to Cart

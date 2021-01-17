@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {LocalShipping, LiveHelp, Payment} from "@material-ui/icons";
+import { LocalShipping, LiveHelp, Payment } from '@material-ui/icons';
 import man from '../../img/man.jpg';
 import woman from '../../img/woman.jpg';
 import child from '../../img/child.jpg';
@@ -126,6 +126,12 @@ export const CollectionItem = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CollectionItem2 = styled.div`
@@ -138,6 +144,12 @@ export const CollectionItem2 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CollectionItem3 = styled.div`
@@ -150,6 +162,12 @@ export const CollectionItem3 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CollectionText = styled.div`

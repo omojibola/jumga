@@ -70,16 +70,68 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
                 }
               }}
             >
-              {({ isSubmitting, isValid }) => (
+              {(props) => (
                 <StyledForm>
-                  <FormInput
-                    type="text"
-                    name="bankName"
-                    placeholder="Bank Name"
-                  />
-                  <ErrorWrapper>
-                    <Error name="bankName" />
-                  </ErrorWrapper>
+                  <FormInput component="select" name="country">
+                    <option value="" disabled>
+                      Please Select a Country
+                    </option>
+                    <option value="NG">Nigeria</option>
+                    <option value="GH">Ghana</option>
+                    <option value="KE">Kenya</option>
+                    <option value="UK">United Kingdom</option>
+                  </FormInput>
+
+                  {props.values.country === 'NG' && (
+                    <FormInput component="select" name="bankName">
+                      <option value="" disabled>
+                        Please Select a Bank
+                      </option>
+                      <option value="011">First Bank of Nigeria</option>
+                      <option value="057">Zenith Bank</option>
+                      <option value="068">Standard Cahatered Bank</option>
+                      <option value="070">Fidelity Bank</option>
+                      <option value="215">Unity Bank</option>
+                      <option value="050">EcoBank</option>
+                      <option value="221">Stanbic IBTC Bank</option>
+                      <option value="044">Access Bank</option>
+                      <option value="058">GTBank PLC</option>
+                      <option value="032">Union Bank</option>
+                      <option value="232">Sterling Bank</option>
+                      <option value="033">United Bank for Africa</option>
+                    </FormInput>
+                  )}
+
+                  {props.values.country === 'GH' && (
+                    <FormInput component="select" name="bankName">
+                      <option value="" disabled>
+                        Please Select a Bank
+                      </option>
+                      <option value="11276282">
+                        First National Bank Ghana Limited
+                      </option>
+                      <option value="10550214">
+                        The Hongkong and Shanghai Banking Corporation Limited{' '}
+                      </option>
+                      <option value="11088200">
+                        Giro Elszamolasforgalmi Zrt.
+                      </option>
+                      <option value="11299458">OmniBank Ghana Limited</option>
+                      <option value="11319374">GHL Bank Ltd</option>
+                      <option value="11350352">Consolidated Bank Ghana</option>
+                      <option value="2006168ICS">
+                        Standard Chartered Bk Ghana Int
+                      </option>
+                      <option value="2006228LG0">
+                        UNITED BANK FOR AFRICA (GHANA) LTD
+                      </option>
+                      <option value="20112200">Partner Banka d.d</option>
+                      <option value="20313200">
+                        Agricultural Development Bank Limited
+                      </option>
+                      <option value="20313400">Bank of Ghana</option>
+                    </FormInput>
+                  )}
                   <FormInput
                     type="text"
                     name="accountName"
@@ -96,16 +148,6 @@ const ShopRegisterTwo = ({ loading, error, authenticated, uid, signup }) => {
                   <ErrorWrapper>
                     <Error name="accountNumber" />
                   </ErrorWrapper>
-
-                  <FormInput component="select" name="country">
-                    <option value="" disabled>
-                      Please Select an option
-                    </option>
-                    <option value="NG">Nigeria</option>
-                    <option value="GH">Ghana</option>
-                    <option value="KE">Kenya</option>
-                    <option value="UK">United Kingdom</option>
-                  </FormInput>
 
                   <TextWrapper2 type="submit">
                     <Text style={{ color: '#fff' }}>

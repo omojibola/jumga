@@ -54,7 +54,7 @@ const appReducer = (state, action) => {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['products', 'firebase', 'auth'],
+  whitelist: ['products', 'firebase', 'auth', 'cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, appReducer);

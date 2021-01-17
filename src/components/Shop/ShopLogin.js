@@ -28,6 +28,7 @@ const ShopLogin = ({ loading, error, uid, signIn }) => {
     if (uid && uid !== null) {
       history.replace('/dashboard');
     }
+    // eslint-disable-next-line
   }, [uid]);
   return (
     <Container style={{ textAlign: 'center' }}>

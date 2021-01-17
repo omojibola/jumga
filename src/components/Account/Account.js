@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { Button } from 'reactstrap';
 import { useHistory, Link } from 'react-router-dom';
-import { firebase } from '../../firebase/fire';
 import { connect } from 'react-redux';
 
 import * as actions from '../../store/actions/profileActions';
@@ -23,6 +22,7 @@ const Account = ({
 
   useEffect(() => {
     fetchProfileDetails();
+    // eslint-disable-next-line
   }, []);
 
   //log out user
@@ -41,7 +41,7 @@ const Account = ({
           <h2>Account</h2>
 
           {profileDetail.status && <h3>Status: {profileDetail.status}</h3>}
-          {dispatchRider && <h3>Status: {dispatchRider.name}</h3>}
+          {dispatchRider && <h3>Dispatch Rider: {dispatchRider.name}</h3>}
 
           <Button color="danger" onClick={() => logOut()}>
             Sign Out
