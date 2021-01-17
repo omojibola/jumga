@@ -1,20 +1,17 @@
 import React from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 import Hero from '../components/Hero/Hero';
 import ProductSection from '../components/ProductSection/ProductSection';
-import {fetchAllProducts} from "../store/actions/productActions";
-import Product from "../components/Product/Product";
-
+import { fetchAllProducts } from '../store/actions/productActions';
 
 const LandingPage = () => {
-    const products = useSelector((state) => state.cart.fetchProduct);
-    const dispatch = useDispatch();
+  const products = useSelector((state) => state.cart.fetchProduct);
+  const dispatch = useDispatch();
 
-    const fetchProducts = async () => {
-        dispatch(fetchAllProducts());
-
-    };
+  const fetchProducts = async () => {
+    dispatch(fetchAllProducts());
+  };
 
   return (
     <div>
@@ -24,9 +21,11 @@ const LandingPage = () => {
         text={'Most Popular'}
       />
       <ProductSection
-          clicked={fetchProducts} buttonText={products.loading ? 'Loading...':'View All Products'} text={'Best Deals'} products={products.products}
+        clicked={fetchProducts}
+        buttonText={products.loading ? 'Loading...' : 'View All Products'}
+        text={'Best Deals'}
+        products={products.products}
       />
-
     </div>
   );
 };

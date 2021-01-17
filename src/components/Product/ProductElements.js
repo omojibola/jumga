@@ -69,15 +69,13 @@ export const StyledCardText = styled(CardText)`
   color: var(--color-main);
   font-family: Poppins, sans-serif;
   font-weight: bold;
-width: 90%;
-border-radius: 0 !important;
-margin-top: 20px !important;
-text-transform: inherit !important;
-background: var(--color-main) !important;
-font-size: 16px !important;
-line-height: 24px !important;
-outline: none !important;
-
+  width: 90%;
+  border-radius: 0 !important;
+  margin-top: 20px !important;
+  text-transform: inherit !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  outline: none !important;
 `;
 export const Grid = styled.div`
   display: grid;
