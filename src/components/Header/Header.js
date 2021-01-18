@@ -57,7 +57,7 @@ const Header = () => {
                 <ButtonName>Go to dashboard</ButtonName>
               </NavLink>
             ) : (
-              <NavLink to={'/shop-register'}>
+              <NavLink to={'/shop-login'}>
                 <ButtonName>Sell on Jumga</ButtonName>
               </NavLink>
             )}
