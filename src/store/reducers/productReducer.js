@@ -11,6 +11,12 @@ const initialState = {
     loading: false,
     data: [],
   },
+  fetchAllProduct: {
+    error: null,
+    loading: false,
+    products: [],
+  },
+  successful: false,
 };
 
 const productReducer = (state = initialState, { type, payload }) => {
@@ -69,6 +75,34 @@ const productReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         fetchProduct: {
+          loading: false,
+          error: payload,
+        },
+      };
+
+    case actions.FETCH_ALL_PRODUCT_START:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
+          loading: true,
+        },
+      };
+    case actions.FETCH_ALL_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
+          loading: false,
+          error: false,
+          products: payload,
+        },
+      };
+    case actions.FETCH_ALL_PRODUCT_FAIL:
+      return {
+        ...state,
+        fetchAllProduct: {
+          ...state.fetchAllProduct,
           loading: false,
           error: payload,
         },

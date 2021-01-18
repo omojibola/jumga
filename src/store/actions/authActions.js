@@ -70,14 +70,51 @@ export const SignUpStepTwo = (data) => async (dispatch, state) => {
   dispatch({ type: STEP_TWO_START });
 
   try {
-    const uid = state().auth.uid;
-    await database.collection('users').doc(uid).update({
-      bankName: data.bankName,
-      accountName: data.accountName,
-      accountNumber: data.accountNumber,
-      country: data.country,
-      dispatchRider: data.dispatchRider,
+    const { uid, email } = state().auth;
+    const { shopName, phoneNumber } = state().firebase.profile;
+    //sub account creation
+
+    var request = require('request');
+    var options = {
+      method: 'POST',
+      url:
+        'https://cors-anywhere.herokuapp.com/https://api.flutterwave.com/v3/subaccounts',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer FLWSECK-15368e2760dc17de2eda65870b339848-X',
+      },
+      body: JSON.stringify({
+        account_bank: data.bankName,
+        account_number: data.accountNumber,
+        business_name: shopName,
+        business_email: email,
+        business_contact: shopName,
+        business_contact_mobile: phoneNumber,
+        business_mobile: phoneNumber,
+        country: data.country,
+
+        meta: [{ meta_name: 'mem_adr', meta_value: '0x16241F327213' }],
+        split_type: 'percentage',
+        split_value: 0.05,
+      }),
+    };
+    request(options, function (error, response) {
+      if (error) throw new Error(error);
+      let details = JSON.parse(response.body);
+      let subaccountId = details.data.subaccount_id;
+      let bankName = details.data.bank_name;
+
+      database.collection('users').doc(uid).update({
+        bankCode: data.bankName,
+        accountName: data.accountName,
+        accountNumber: data.accountNumber,
+        country: data.country,
+        dispatchRider: data.dispatchRider,
+        subaccountId: subaccountId,
+        bankName: bankName,
+      });
     });
+
     dispatch({
       type: STEP_TWO_SUCCESS,
     });

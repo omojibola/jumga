@@ -15,6 +15,8 @@ const PrivateRoute = (WrappedComponent) => {
 
     useEffect(() => {
       checkAuthentication();
+
+      // eslint-disable-next-line
     }, [uid]);
 
     const render = () => {

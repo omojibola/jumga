@@ -6,6 +6,11 @@ width: 80%;
 margin: 0 auto;
 padding: 50px 0;
 //align-items: center;
+
+@media (max-width: 780px) {
+flex-direction: column;
+width: 90%;
+}
 `;
 
 export const CheckoutItems = styled.div`
@@ -19,16 +24,27 @@ font-weight: normal;
 font-size: 32px;
 color: var(--color-black);
 margin: 30px 0;
+
+@media (max-width: 400px) {
+  font-size: 24px;
+}
+
+
 `;
 
 export const OrderSummary = styled.div`
 background: rgba(229, 229, 229, 0.2);
-padding: 3%;
+padding: 5%;
 color: var(--color-black);
 display: flex;
 flex-direction: column;
 height: fit-content;
 width: 30%;
+
+@media (max-width: 780px) {
+  width: 90%;
+  margin: 20px 0;
+}
 
 `;
 

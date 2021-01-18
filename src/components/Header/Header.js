@@ -15,27 +15,17 @@ import {
   LinkTag,
   NavLink,
   Ship,
-  Call,
   Cart,
+  Call,
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
 import { KeyboardArrowDown, Search } from '@material-ui/icons';
-import { useHistory } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
-import { firebase } from '../../firebase/fire';
 
 const Header = () => {
   const items = useSelector((state) => state.cart.basket);
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.firebase.profile);
-  const history = useHistory();
-
-  const logOut = async () => {
-    await firebase.auth().signOut();
-    history.push('/');
-    window.location.reload();
-  };
 
   return (
     <div>
@@ -63,11 +53,11 @@ const Header = () => {
             )}
             <Barrier />
             {auth.email ? (
-              <NavLink to={'/shop-register'}>
+              <NavLink to={'/dashboard'}>
                 <ButtonName>Go to dashboard</ButtonName>
               </NavLink>
             ) : (
-              <NavLink to={'/dashboard'}>
+              <NavLink to={'/shop-register'}>
                 <ButtonName>Sell on Jumga</ButtonName>
               </NavLink>
             )}
@@ -75,12 +65,14 @@ const Header = () => {
         </NavTop>
         <NavBottom>
           <Wrapper>
-            <Group>Categories</Group>
-            <KeyboardArrowDown />
-          </Wrapper>
-          <Wrapper>
-            <Group>Brands</Group>
-            <KeyboardArrowDown />
+            <Wrapper>
+              <Group>Categories</Group>
+              <KeyboardArrowDown/>
+            </Wrapper>
+            <Wrapper>
+              <Group>Brands</Group>
+              <KeyboardArrowDown />
+            </Wrapper>
           </Wrapper>
           <SearchWrapper>
             <SearchContainer>

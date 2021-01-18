@@ -7,7 +7,6 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/productActions';
 import OwnedProductList from '../components/Product/OwnedProductList';
-import { Grid } from '../components/Product/ProductElements';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +37,7 @@ const OwnedProductsPage = ({ startFetchProduct, products, loading }) => {
   };
   useEffect(() => {
     fetchProductDetails();
+    // eslint-disable-next-line
   }, []);
 
   //set products into state

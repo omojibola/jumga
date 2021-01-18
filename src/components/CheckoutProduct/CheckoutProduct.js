@@ -16,6 +16,7 @@ import * as actionTypes from '../../store/actions/shopActions';
 
 const CheckoutProduct = () => {
   const basket = useSelector((state) => state.cart.basket);
+
   const dispatch = useDispatch();
 
   const removeFromBasket = (id) => {
@@ -29,11 +30,11 @@ const CheckoutProduct = () => {
           <ProductHead>Product Details</ProductHead>
         </ProductTop>
         {basket.length !== 0 ? (
-          basket.map((item) => (
-            <ProductItem key={item.index}>
+          basket.map((item, index) => (
+            <ProductItem key={index}>
               <ProductImg src={item.image} />
               <ProductInfo>{item.name}</ProductInfo>
-              <ProductInfo>NGN {item.price}</ProductInfo>
+              <ProductInfo>USD {item.price}</ProductInfo>
               <Close onClick={() => removeFromBasket(item.id)} />
             </ProductItem>
           ))
