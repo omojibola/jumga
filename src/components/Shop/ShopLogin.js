@@ -25,9 +25,6 @@ const ShopLogin = ({ loading, error, uid, signIn }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (uid && uid !== null) {
-      history.replace('/dashboard');
-    }
     // eslint-disable-next-line
   }, [uid]);
   return (
@@ -45,6 +42,9 @@ const ShopLogin = ({ loading, error, uid, signIn }) => {
               onSubmit={async (values, { setSubmitting }) => {
                 await signIn(values);
                 setSubmitting(false);
+                if (uid && uid !== null) {
+                  history.replace('/dashboard');
+                }
               }}
             >
               <StyledForm>

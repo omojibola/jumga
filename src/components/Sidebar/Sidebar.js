@@ -264,9 +264,11 @@ const Sidebar = ({ profileDetail, fetchProducts, fetchProfile }) => {
         <StyledList>
           <ListItem>
             <ListItemIcon>
-              <DashboardOutlinedIcon
-                style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
-              />
+              <Link to="/dashboard">
+                <DashboardOutlinedIcon
+                  style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
+                />
+              </Link>
             </ListItemIcon>
             <ListItemText>
               <SidebarText to="/dashboard">Dashboard</SidebarText>
@@ -276,9 +278,11 @@ const Sidebar = ({ profileDetail, fetchProducts, fetchProfile }) => {
         <StyledList>
           <ListItem>
             <ListItemIcon>
-              <LocalMallOutlined
-                style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
-              />
+              <Link to="/my-products">
+                <LocalMallOutlined
+                  style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
+                />
+              </Link>
             </ListItemIcon>
             <ListItemText>
               <SidebarText to="/my-products">Products</SidebarText>
@@ -288,9 +292,11 @@ const Sidebar = ({ profileDetail, fetchProducts, fetchProfile }) => {
         <StyledList>
           <ListItem>
             <ListItemIcon>
-              <PaymentIcon
-                style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
-              />
+              <Link to="/orders">
+                <PaymentIcon
+                  style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
+                />
+              </Link>
             </ListItemIcon>
             <ListItemText>
               <SidebarText to="/orders">Orders</SidebarText>
@@ -300,9 +306,11 @@ const Sidebar = ({ profileDetail, fetchProducts, fetchProfile }) => {
         <StyledList>
           <ListItem>
             <ListItemIcon>
-              <HomeOutlinedIcon
-                style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
-              />
+              <Link to="/">
+                <HomeOutlinedIcon
+                  style={{ color: 'rgba(0, 0, 0, 0.5)', fontSize: 20 }}
+                />
+              </Link>
             </ListItemIcon>
             <ListItemText>
               <SidebarText onClick={() => backHome()}>
