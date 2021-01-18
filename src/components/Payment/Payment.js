@@ -58,7 +58,7 @@ const Payment = () => {
   });
 
   const config = {
-    public_key: process.env.REACT_APP_PUBLIC_KEY,
+    public_key: 'FLWPUBK-435b1af2cfff7063d83a20a7a1bb2941-X',
     tx_ref: Date.now(),
     amount: total,
     currency: 'USD',

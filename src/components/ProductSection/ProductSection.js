@@ -16,11 +16,11 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
       <ProductCover>
         <ProductText>{text}</ProductText>
         <ProductCase>
-          <Product id={1} image={product} price={1800} name={'Phone Case'} />
+          <Product id={1} image={product} price={18} name={'Phone Case'} />
           <Product
             id={2}
             image={speaker}
-            price={23000}
+            price={230}
             name={'Amazon Echo Smart Speaker'}
           />
           <Product
@@ -28,7 +28,7 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             image={
               'https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg'
             }
-            price={42000}
+            price={320}
             name={'Kenwood KMix Stand Mixer'}
           />
           <Product
@@ -36,7 +36,7 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             image={
               'https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg'
             }
-            price={1500}
+            price={8}
             name={'The Lean StartUp'}
           />
           {products

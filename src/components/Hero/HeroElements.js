@@ -94,7 +94,7 @@ export const HeroImage = styled.div`
   display: flex;
   
   @media (max-width: 780px) {
-  width: 90%;
+  display: none;
   }
 `;
 
