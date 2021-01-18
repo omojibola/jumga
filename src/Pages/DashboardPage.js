@@ -12,6 +12,7 @@ const DashboardPage = ({ fetchProfile, ...allProps }) => {
 
   useEffect(() => {
     fetchProfileDetails();
+    // eslint-disable-next-line
   }, []);
 
   return (

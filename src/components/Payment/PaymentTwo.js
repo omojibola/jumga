@@ -1,64 +1,73 @@
-import React from "react";
+import React from 'react';
 import {
-    Details,
-    FormContainer, FormInput, FormItem, FormLabel, FormLine, PaymentInfo,
-    ListItem,
-    OrderedList, PaymentForm,
-    PaymentHeading,
-    PayParagraph, FormSelect,
-    ReturnLink, StyledForm
-} from "./PaymentElements";
-import {LinkTag} from "../Header/HeaderElements";
-import ButtonName from "../Button/ButtonName";
-import OrderTotal from "../OrderTotal";
-import {useHistory} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {getBasketTotal} from "../../store/reducers/shopReducer";
+  Details,
+  FormContainer,
+  FormInput,
+  FormItem,
+  FormLabel,
+  FormLine,
+  PaymentInfo,
+  ListItem,
+  OrderedList,
+  PaymentForm,
+  PaymentHeading,
+  PayParagraph,
+  FormSelect,
+  ReturnLink,
+  StyledForm,
+} from './PaymentElements';
+import { LinkTag } from '../Header/HeaderElements';
+import ButtonName from '../Button/ButtonName';
+import OrderTotal from '../OrderTotal';
+import { useSelector } from 'react-redux';
+import { getBasketTotal } from '../../store/reducers/shopReducer';
 
 const PaymentTwo = () => {
-    const history = useHistory();
-    const basket = useSelector((state) => state.cart.basket);
-    return (
-        <div>
-            <PaymentForm>
-                <PaymentInfo>
-                    <OrderedList>
-                        <LinkTag to={'/payment'}>
-                            <ListItem>Shipping</ListItem>
-                        </LinkTag>
-                        <LinkTag to={'/paymentTwo'}>
-                            <ListItem color>Payment</ListItem>
-                        </LinkTag>
-                        <LinkTag to={'/paymentTwo'}>
-                            <ListItem>Confirmation</ListItem>
-                        </LinkTag>
-                    </OrderedList>
-                    <PaymentHeading>Payment Details</PaymentHeading>
-                    <PayParagraph>If you already have an account, <ReturnLink to={'/login'}>sign in here</ReturnLink> </PayParagraph>
+  const basket = useSelector((state) => state.cart.basket);
+  return (
+    <div>
+      <PaymentForm>
+        <PaymentInfo>
+          <OrderedList>
+            <LinkTag to={'/payment'}>
+              <ListItem>Shipping</ListItem>
+            </LinkTag>
+            <LinkTag to={'/paymentTwo'}>
+              <ListItem color>Payment</ListItem>
+            </LinkTag>
+            <LinkTag to={'/paymentConfirmed'}>
+              <ListItem>Confirmation</ListItem>
+            </LinkTag>
+          </OrderedList>
+          <PaymentHeading>Payment Details</PaymentHeading>
+          <PayParagraph>
+            If you already have an account,{' '}
+            <ReturnLink to={'/login'}>sign in here</ReturnLink>{' '}
+          </PayParagraph>
 
-                    <Details>
-                        <FormContainer
-                            initialValues={{
-                                name: '',
-                                cardNumber: '',
-                                expiryDate: '',
-                                year: '',
-                                code: ''
-                            }}
-                        >
-                            <StyledForm>
-                                <FormLine width>
-                                    <FormItem>
-                                        <FormLabel htmlFor={'name'}>Card Holder's name</FormLabel>
-                                        <FormInput type={'text'} name={'name'} />
-                                    </FormItem>
-                                </FormLine>
-                                <FormLine width>
-                                    <FormItem>
-                                        <FormLabel htmlFor={'cardNumber'}>Card Number</FormLabel>
-                                        <FormInput type={'text'} name={'cardNumber'} />
-                                    </FormItem>
-                                </FormLine>
+          <Details>
+            <FormContainer
+              initialValues={{
+                name: '',
+                cardNumber: '',
+                expiryDate: '',
+                year: '',
+                code: '',
+              }}
+            >
+              <StyledForm>
+                <FormLine width>
+                  <FormItem>
+                    <FormLabel htmlFor={'name'}>Card Holder's name</FormLabel>
+                    <FormInput type={'text'} name={'name'} />
+                  </FormItem>
+                </FormLine>
+                <FormLine width>
+                  <FormItem>
+                    <FormLabel htmlFor={'cardNumber'}>Card Number</FormLabel>
+                    <FormInput type={'text'} name={'cardNumber'} />
+                  </FormItem>
+                </FormLine>
 
                                 <FormLine width>
                                     <FormItem>

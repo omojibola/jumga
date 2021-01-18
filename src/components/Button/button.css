@@ -6,7 +6,11 @@
   border-radius: 0 !important;
   text-transform: inherit !important;
   font-weight: 300 !important;
-  outline: none;
+  outline: none !important;
+}
+
+.button :focus {
+  outline: none !important;
 }
 
 @media (max-width: 780px) {

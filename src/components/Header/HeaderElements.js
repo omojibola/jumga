@@ -55,6 +55,7 @@ export const BrandName = styled.h4`
   font-size: 16px;
   line-height: 24px;
   color: var(--color-main);
+
 `;
 
 export const Paragraph1 = styled.p`
@@ -89,7 +90,7 @@ export const NavBottom = styled.nav`
   background: #ffffff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-top: 2px solid #e5e5e5;
-  padding: 10px 10%;
+  padding: 15px 10%;
   align-items: center;
 `;
 
@@ -99,6 +100,7 @@ font-style: normal;
 font-weight: 600;
 line-height: 21px;
 color: var(--color-main);
+margin-bottom: 0;
 `;
 
 export const SearchWrapper = styled.div`

@@ -1,19 +1,18 @@
-import styled from "styled-components";
-import {Button} from "@material-ui/core";
+import styled from 'styled-components';
+import { Button } from '@material-ui/core';
 
 export const ProductCover = styled.div`
-width: 80%;
-margin: 40px auto;
-
+  width: 80%;
+  margin: 40px auto;
 `;
 
 export const ProductText = styled.p`
-font-family: Poppins, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 24px;
-color: #000000;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
 `;
 
 export const ProductCase = styled.div`
@@ -27,17 +26,17 @@ export const ProductCase = styled.div`
 `;
 
 export const ProductWrap = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const MoreButton = styled(Button)`
-text-transform: inherit !important;
-margin: 20px 0 !important;
-color: var(--color-main) !important;
-border-radius: 0 !important;
-border-color: var(--color-main) !important;
-font-size: 16px !important;
-line-height: 24px !important;
-padding: 10px 20px !important;
+  text-transform: inherit !important;
+  margin: 20px 0 !important;
+  color: var(--color-main) !important;
+  border-radius: 0 !important;
+  border-color: var(--color-main) !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  padding: 10px 20px !important;
 `;

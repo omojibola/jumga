@@ -1,22 +1,22 @@
 import * as actions from '../actions/productActions';
 
 const initialState = {
-  // addProduct: {
-  //   error: null,
-  //   loading: false,
-  //   data: {},
-  // },
-  // fetchProduct: {
-  //   error: null,
-  //   loading: false,
-  //   data: [],
-  // },
-  // fetchAllProduct: {
-  //   error: null,
-  //   loading: false,
-  //   products: []
-  // }
-  successful: false
+  addProduct: {
+    error: null,
+    loading: false,
+    data: {},
+  },
+  fetchProduct: {
+    error: null,
+    loading: false,
+    data: [],
+  },
+  fetchAllProduct: {
+    error: null,
+    loading: false,
+    products: [],
+  },
+  successful: false,
 };
 
 const productReducer = (state = initialState, { type, payload }) => {
@@ -86,8 +86,7 @@ const productReducer = (state = initialState, { type, payload }) => {
         fetchAllProduct: {
           ...state.fetchAllProduct,
           loading: true,
-        }
-
+        },
       };
     case actions.FETCH_ALL_PRODUCT_SUCCESS:
       return {
@@ -98,7 +97,6 @@ const productReducer = (state = initialState, { type, payload }) => {
           error: false,
           products: payload,
         },
-
       };
     case actions.FETCH_ALL_PRODUCT_FAIL:
       return {
@@ -106,8 +104,8 @@ const productReducer = (state = initialState, { type, payload }) => {
         fetchAllProduct: {
           ...state.fetchAllProduct,
           loading: false,
-          error: payload
-        }
+          error: payload,
+        },
       };
     default:
       return state;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {LocalShipping, LiveHelp, Payment} from "@material-ui/icons";
+import { LocalShipping, LiveHelp, Payment } from '@material-ui/icons';
 import man from '../../img/man.jpg';
 import woman from '../../img/woman.jpg';
 import child from '../../img/child.jpg';
@@ -168,10 +168,16 @@ export const CollectionItem = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease-in-out;
   
   @media (max-width: 780px) {
    width: 90%;
    margin: 20px 0;
+  cursor: pointer;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -185,10 +191,16 @@ export const CollectionItem2 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease-in-out;
   
-    @media (max-width: 780px) {
+   @media (max-width: 780px) {
    width: 90%;
    margin: 20px 0;
+  cursor: pointer;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -202,10 +214,17 @@ export const CollectionItem3 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease-in-out;
   
-    @media (max-width: 780px) {
+   &:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 780px) {
    width: 90%;
    margin: 20px 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   }
 `;
 

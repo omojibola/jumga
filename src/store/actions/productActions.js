@@ -16,6 +16,7 @@ export const addProduct = (data) => async (dispatch, getState) => {
 
   try {
     const uid = getState().firebase.auth.uid;
+    const { subaccountId } = getState().firebase.profile;
     await database.collection('products').add({
       productName: data.productName,
       price: data.price,
@@ -24,6 +25,7 @@ export const addProduct = (data) => async (dispatch, getState) => {
       createdBy: uid,
       createdAt: firebase.firestore.Timestamp.now(),
       shopName: data.shopName,
+      subaccountId: subaccountId,
     });
 
     dispatch({ type: ADD_PRODUCT_SUCCESS });
@@ -80,10 +82,10 @@ export const fetchAllProducts = () => async (dispatch, getState) => {
     const res = await database.collection('products').get();
 
     res.forEach((doc) => {
-        allProducts.push({
-          id: doc.id,
-          ...doc.data()
-        });
+      allProducts.push({
+        id: doc.id,
+        ...doc.data(),
+      });
     });
     console.log(allProducts);
     dispatch({ type: FETCH_ALL_PRODUCT_SUCCESS, payload: allProducts });

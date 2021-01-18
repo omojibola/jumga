@@ -14,25 +14,19 @@ import {
   HeadSpan,
   LinkTag,
   NavLink,
-    Ship, Cart, Call
+  Ship,
+  Cart,
+  Call,
 } from './HeaderElements';
 import ButtonName from '../Button/ButtonName';
-import { KeyboardArrowDown, Search} from '@material-ui/icons';
+import { KeyboardArrowDown, Search } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { firebase } from '../../firebase/fire';
 
 const Header = () => {
   const items = useSelector((state) => state.cart.basket);
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.firebase.profile);
-  const history = useHistory();
 
-  const logOut = async () => {
-    await firebase.auth().signOut();
-    history.push('/');
-    window.location.reload();
-  };
   return (
     <div>
       <HeaderTop>
@@ -71,10 +65,14 @@ const Header = () => {
         </NavTop>
         <NavBottom>
           <Wrapper>
-            <Group>Categories</Group>
-            <KeyboardArrowDown/>
-            <Group>Brands</Group>
-            <KeyboardArrowDown />
+            <Wrapper>
+              <Group>Categories</Group>
+              <KeyboardArrowDown/>
+            </Wrapper>
+            <Wrapper>
+              <Group>Brands</Group>
+              <KeyboardArrowDown />
+            </Wrapper>
           </Wrapper>
           <SearchWrapper>
             <SearchContainer>

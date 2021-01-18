@@ -67,6 +67,7 @@ const ProductForm = ({ startAddProduct, error, loading }) => {
       } else {
         didMountRef.current = true;
       }
+      // eslint-disable-next-line
     }, [dependencies]);
   };
 
