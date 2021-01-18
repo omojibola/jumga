@@ -7,11 +7,19 @@ font-weight: bold;
 font-size: 36px;
 line-height: 54px;
 color: var(--color-black);
+
+@media (max-width: 400px) {
+  font-size: 24px;
+}
 `;
 
 export const Products = styled.div`
 width: 80%;
 margin-bottom: 5%;
+
+@media (max-width: 780px) {
+  width: 100%;
+}
 `;
 
 export const ProductTop = styled.div`

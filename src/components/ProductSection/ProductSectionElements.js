@@ -21,6 +21,9 @@ export const ProductCase = styled.div`
     z-index: 1;
     justify-content: space-between;
     flex-wrap: wrap;
+    @media (max-width: 780px) {
+    justify-content: center;
+    }
 `;
 
 export const ProductWrap = styled.div`

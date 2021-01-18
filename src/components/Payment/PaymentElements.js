@@ -7,10 +7,18 @@ width: 80%;
 margin: 20px auto;
 display: flex;
 align-items: center;
+
+@media (max-width: 780px) {
+flex-direction: column;
+}
 `;
 
 export const PaymentInfo = styled.div`
 width: 70%;
+
+@media (max-width: 780px) {
+width: 100%;
+}
 `;
 
 export const OrderedList = styled.ol`
@@ -18,12 +26,17 @@ display: flex;
 width: 50%;
 justify-content: space-between;
 margin: 50px 15px;
+
 `;
 
 export const ListItem = styled.li`
 font-size: 14px;
 line-height: 21px;
 color: ${({ color }) => (color ? 'var(--color-main)' : 'var(--color-black)')};
+
+@media (max-width: 780px) {
+display: ${({ color }) => (color ? 'inherit' : 'none')};
+}
 `;
 
 
@@ -63,6 +76,10 @@ display: flex;
 justify-content: space-between;
 width: ${({ width }) => (width ? '70%' : '90%')};
 margin: 60px 0;
+
+@media (max-width: 780px) {
+width: 100%;
+}
 `;
 
 export const FormItem = styled.div`

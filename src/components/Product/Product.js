@@ -10,9 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from '../../store/actions/shopActions';
 import CurrencyFormat from "react-currency-format";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Product = ({ id, image, name, price }) => {
   const items = useSelector((state) => state.cart.basket);
   const dispatch = useDispatch();
+  const notify = () => toast.dark(`${name} added to cart!`);
 
 
   const addToBasket = () => {
@@ -24,6 +28,8 @@ const Product = ({ id, image, name, price }) => {
         image: image,
       })
     );
+    notify();
+
   };
 
   return (
@@ -50,6 +56,7 @@ const Product = ({ id, image, name, price }) => {
             Add to Cart
           </ProductButton>
         </ProductDetails>
+          <ToastContainer autoClose={3000} newestOnTop={true}/>
       </ProductCase>
     </div>
   );

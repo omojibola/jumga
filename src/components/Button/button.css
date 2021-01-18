@@ -8,3 +8,9 @@
   font-weight: 300 !important;
   outline: none;
 }
+
+@media (max-width: 780px) {
+  .button {
+    margin: 0 10px !important;
+  }
+}

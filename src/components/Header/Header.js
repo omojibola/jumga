@@ -72,9 +72,7 @@ const Header = () => {
         <NavBottom>
           <Wrapper>
             <Group>Categories</Group>
-            <KeyboardArrowDown />
-          </Wrapper>
-          <Wrapper>
+            <KeyboardArrowDown/>
             <Group>Brands</Group>
             <KeyboardArrowDown />
           </Wrapper>

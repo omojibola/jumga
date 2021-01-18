@@ -64,7 +64,7 @@ const PaymentTwo = () => {
                                     <FormItem>
                                         <FormLabel htmlFor={'expiryDate'}>Expiry Date</FormLabel>
                                         <FormSelect component={"select"} name={"month"}>
-                                            <option value="" disabled>Please Select an option</option>
+                                            <option value="" disabled>Month</option>
                                             <option value="Jan">January</option>
                                             <option value="Feb">February</option>
                                             <option value="Mar">March</option>
@@ -83,7 +83,7 @@ const PaymentTwo = () => {
                                     <FormItem>
                                         <FormLabel htmlFor={'year'}>Year</FormLabel>
                                         <FormSelect component={"select"} name={"year"}>
-                                            <option value="" disabled>Please Select an option</option>
+                                            <option value="" disabled>Year</option>
                                             <option value="2020">2020</option>
                                             <option value="2021">2021</option>
                                             <option value="2022">2022</option>
