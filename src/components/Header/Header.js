@@ -65,12 +65,14 @@ const Header = () => {
         </NavTop>
         <NavBottom>
           <Wrapper>
-            <Group>Categories</Group>
-            <KeyboardArrowDown />
-          </Wrapper>
-          <Wrapper>
-            <Group>Brands</Group>
-            <KeyboardArrowDown />
+            <Wrapper>
+              <Group>Categories</Group>
+              <KeyboardArrowDown/>
+            </Wrapper>
+            <Wrapper>
+              <Group>Brands</Group>
+              <KeyboardArrowDown />
+            </Wrapper>
           </Wrapper>
           <SearchWrapper>
             <SearchContainer>

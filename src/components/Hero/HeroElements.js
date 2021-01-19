@@ -21,6 +21,11 @@ export const HeroText = styled.div`
   flex-direction: column;
   margin: 60px 10px;
   width: 35%;
+  
+  @media (max-width: 780px) {
+  width: 90%;
+  margin: 10px;
+  }
 `;
 
 export const HeroHeading = styled.h1`
@@ -30,6 +35,11 @@ export const HeroHeading = styled.h1`
   font-size: 36px;
   line-height: 54px;
   color: var(--color-main);
+  
+  @media (max-width: 400px) {
+  font-size: 24px;
+  line-height: 32px;
+  }
 `;
 
 export const HeroParagraph = styled.p`
@@ -42,6 +52,12 @@ export const HeroParagraph = styled.p`
   width: 80%;
   padding-bottom: 60px;
   opacity: 0.6;
+  
+   @media (max-width: 400px) {
+  font-size: 14px;
+  line-height: 16px;
+  padding-bottom: 20px;
+  }
 `;
 
 export const HeadingSpan = styled.span`
@@ -51,6 +67,11 @@ export const HeadingSpan = styled.span`
   font-size: 36px;
   line-height: 54px;
   color: var(--color-black);
+  
+   @media (max-width: 400px) {
+  font-size: 24px;
+  line-height: 32px;
+  }
 `;
 
 export const HeroCover = styled.div`
@@ -58,6 +79,10 @@ export const HeroCover = styled.div`
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+  
+  @media (max-width: 780px) {
+  flex-direction: column;
+  }
 `;
 
 export const Hero1 = styled.div`
@@ -67,6 +92,10 @@ export const Hero1 = styled.div`
 export const HeroImage = styled.div`
   width: 45%;
   display: flex;
+  
+  @media (max-width: 780px) {
+  display: none;
+  }
 `;
 
 export const HeroImg = styled.img`
@@ -79,12 +108,20 @@ export const Features = styled.div`
   margin: 50px auto;
   display: flex;
   justify-content: space-around;
+  
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
 `;
 
 export const FeatureItem = styled.div`
   display: flex;
   width: 25%;
   align-items: center;
+  
+  @media (max-width: 780px) {
+   width: 90%;  
+  }
 `;
 
 export const FeatureBox = styled.div`
@@ -114,6 +151,11 @@ export const Collection = styled.div`
   margin: 100px auto;
   display: flex;
   justify-content: space-between;
+  
+  @media (max-width: 780px) {
+    flex-direction: column;
+    margin: 30px auto;
+  }
 `;
 
 export const CollectionItem = styled.div`
@@ -126,8 +168,13 @@ export const CollectionItem = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
+  
+  @media (max-width: 780px) {
+   width: 90%;
+   margin: 20px 0;
+  cursor: pointer;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -144,8 +191,13 @@ export const CollectionItem2 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
+  
+   @media (max-width: 780px) {
+   width: 90%;
+   margin: 20px 0;
+  cursor: pointer;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -162,11 +214,17 @@ export const CollectionItem3 = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+  
+   &:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 780px) {
+   width: 90%;
+   margin: 20px 0;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
   }
 `;
 

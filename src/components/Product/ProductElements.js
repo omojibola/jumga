@@ -7,7 +7,7 @@ export const ProductCase = styled.div`
   flex-direction: column;
   background: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 270px;
+  width: 280px;
   max-height: 400px;
   margin: 30px 0;
 `;
@@ -33,6 +33,7 @@ export const ProductName = styled.p`
   font-size: 16px;
   line-height: 24px;
   color: #000000;
+  text-align: center;
 `;
 
 export const ProductButton = styled(Button)`

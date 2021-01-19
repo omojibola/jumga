@@ -17,7 +17,7 @@ const LandingPage = () => {
     <div>
       <Hero />
       <ProductSection
-        buttonText={'See All Most Popular'}
+        //buttonText={'See All Most Popular'}
         text={'Most Popular'}
       />
       <ProductSection

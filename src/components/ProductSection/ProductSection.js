@@ -53,9 +53,11 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             : null}
         </ProductCase>
         <ProductWrap>
-          <MoreButton onClick={clicked} variant={'outlined'}>
-            {buttonText}
-          </MoreButton>
+          {buttonText && (
+            <MoreButton onClick={clicked} variant={'outlined'}>
+              {buttonText}
+            </MoreButton>
+          )}
         </ProductWrap>
       </ProductCover>
     </>

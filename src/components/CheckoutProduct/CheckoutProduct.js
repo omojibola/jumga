@@ -30,8 +30,8 @@ const CheckoutProduct = () => {
           <ProductHead>Product Details</ProductHead>
         </ProductTop>
         {basket.length !== 0 ? (
-          basket.map((item) => (
-            <ProductItem key={item.index}>
+          basket.map((item, index) => (
+            <ProductItem key={index}>
               <ProductImg src={item.image} />
               <ProductInfo>{item.name}</ProductInfo>
               <ProductInfo>USD {item.price}</ProductInfo>

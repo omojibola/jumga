@@ -10,8 +10,14 @@ import { useDispatch } from 'react-redux';
 import * as actionTypes from '../../store/actions/shopActions';
 import CurrencyFormat from 'react-currency-format';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Product = ({ id, image, name, price, subaccountId }) => {
+
   const dispatch = useDispatch();
+  const notify = () => toast.dark(`${name} added to cart!`);
 
   const addToBasket = () => {
     dispatch(
@@ -23,6 +29,8 @@ const Product = ({ id, image, name, price, subaccountId }) => {
         subaccountId: subaccountId,
       })
     );
+    notify();
+
   };
 
   return (
@@ -46,6 +54,7 @@ const Product = ({ id, image, name, price, subaccountId }) => {
             Add to Cart
           </ProductButton>
         </ProductDetails>
+          <ToastContainer autoClose={3000} newestOnTop={true}/>
       </ProductCase>
     </div>
   );
