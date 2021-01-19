@@ -1,8 +1,6 @@
-![Build and Deploy Resident Web to Firebase](https://github.com/GatePass-Community-Systems/gp-resident-web/workflows/Build%20and%20Deploy%20Resident%20Web%20to%20Firebase/badge.svg)
-
 # JUMGA
 
-> **This react application contains the front end views used by the resident users.**
+> **This react application contains the Jumga Ecommerce Store.**
 
 ## Clone the repo
 
@@ -15,11 +13,7 @@ Then clone this repo to your local machine to get started.
 
 ## Build and Run
 
-1 - Get access to the Jumga Firebase console.
-
-2 - Login to Jumga Firebase console
-
-3 - Install all dependencies associated with the application.
+1 - Install all dependencies associated with the application.
 
 ### `npm install`
 
@@ -65,4 +59,4 @@ For details on generating the config file and its usage. Visit [Firebase CI](htt
 
 ## Project Styling
 
-This application uses Bootstrap and styled components (including partials) for component styling and theming.
+This application uses Bootstrap/ReactStrap and styled components for component styling and theming.
