@@ -32,6 +32,11 @@ export const Image = styled.img`
 export const Wrapper = styled.div`
   text-align: center;
   margin-top: 144px;
+  
+  @media(max-width: 780px) {
+  margin: 40px 0;
+
+  }
 `;
 
 export const Heading = styled.h3`

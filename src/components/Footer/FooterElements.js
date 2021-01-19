@@ -19,13 +19,15 @@ export const FooterCover = styled.footer`
   display: flex;
   padding: 5% 10%;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const FooterLinkBox = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-
+  margin: 20px 0;
+  min-width: 100px;
 `;
 
 export const FooterName = styled.p`
@@ -36,16 +38,24 @@ export const FooterName = styled.p`
   line-height: 27px;
   color: #ffffff;
   margin: 5% 0;
+  
+  @media (max-width: 780px) {
+  margin: 4% 0;
+  }
 `;
 
 export const FooterP = styled.p`
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   margin: 5% 0;
+  
+   @media (max-width: 780px) {
+  margin: 2% 0;
+  }
 `;
 
 export const FooterSocial = styled.div`
@@ -53,4 +63,5 @@ export const FooterSocial = styled.div`
   justify-content: space-between;
   padding-top: 30px;
   width: 80%;
+  
 `;

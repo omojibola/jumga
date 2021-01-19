@@ -2,27 +2,44 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const PaymentForm = styled.div`
+width: 80%;
+margin: 20px auto;
+display: flex;
+align-items: center;
+
+@media (max-width: 780px) {
+flex-direction: column;
+}
+`;
+
+export const PaymentInfo = styled.div`
+width: 70%;
+
+@media (max-width: 780px) {
+width: 100%;
+}
+`;
+
+export const OrderedList = styled.ol`
+display: flex;
+width: 50%;
+justify-content: space-between;
+margin: 50px 15px;
+
+`;
+
+export const ListItem = styled.li`
+font-size: 14px;
+line-height: 21px;
+color: ${({ color }) => (color ? 'var(--color-main)' : 'var(--color-black)')};
+
+@media (max-width: 780px) {
+display: ${({ color }) => (color ? 'inherit' : 'none')};
+}
   width: 80%;
   margin: 20px auto;
   display: flex;
   align-items: center;
-`;
-
-export const PaymentInfo = styled.div`
-  width: 70%;
-`;
-
-export const OrderedList = styled.ol`
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  margin: 50px 15px;
-`;
-
-export const ListItem = styled.li`
-  font-size: 14px;
-  line-height: 21px;
-  color: ${({ color }) => (color ? 'var(--color-main)' : 'var(--color-black)')};
 `;
 
 export const PaymentHeading = styled.h1`
@@ -58,10 +75,14 @@ export const StyledForm = styled.form`
 `;
 
 export const FormLine = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: ${({ width }) => (width ? '70%' : '90%')};
-  margin: 60px 0;
+display: flex;
+justify-content: space-between;
+width: ${({ width }) => (width ? '70%' : '90%')};
+margin: 60px 0;
+
+@media (max-width: 780px) {
+width: 100%;
+}
 `;
 
 export const FormItem = styled.div`
@@ -134,7 +155,6 @@ export const SubmitButton = styled.button`
   padding: 10px;
   border: none;
   transition: 0.2s ease-in;
-  width: 30%;
 
   &:hover {
     color: var(--color-main);
