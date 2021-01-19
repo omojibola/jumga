@@ -20,7 +20,7 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
           <Product
             id={2}
             image={speaker}
-            price={230}
+            price={23}
             name={'Amazon Echo Smart Speaker'}
           />
           <Product
@@ -28,7 +28,7 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             image={
               'https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg'
             }
-            price={320}
+            price={42}
             name={'Kenwood KMix Stand Mixer'}
           />
           <Product
@@ -36,7 +36,7 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             image={
               'https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg'
             }
-            price={8}
+            price={15}
             name={'The Lean StartUp'}
           />
           {products
@@ -53,11 +53,11 @@ const ProductSection = ({ text, buttonText, clicked, products }) => {
             : null}
         </ProductCase>
         <ProductWrap>
-          {buttonText &&
-          <MoreButton onClick={clicked} variant={'outlined'}>
-            {buttonText}
-          </MoreButton>
-          }
+          {buttonText && (
+            <MoreButton onClick={clicked} variant={'outlined'}>
+              {buttonText}
+            </MoreButton>
+          )}
         </ProductWrap>
       </ProductCover>
     </>
